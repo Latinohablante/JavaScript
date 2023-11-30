@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio introducción JavaScript ejercicio 4 hora</title>
+</head>
+<body>
+    <script>
+        let hora = Number(prompt("Ingrese la hora (formato de 24 horas):"));
+
+        let esAM = hora >= 0 && hora <= 12;
+        let esPM = !esAM;
+
+        let periodo = esAM && "am" || "pm";
+
+        console.log(periodo);
+        alert(periodo);
+        
+    </script>
+    
+</body>
+</html>

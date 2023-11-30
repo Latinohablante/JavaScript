@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio introducción JavaScript Campers</title>
+</head>
+<body>
+    <script>
+        let n1 = Number(prompt("Ingrese el número de campers: "))
+        let numeroMonitores = n1 * 2;
+
+        let salida = `El numero de campers es ${n1}\n` + "-".repeat(30) + `\nEl número de monitores es: ${numeroMonitores}
+\n` + "-".repeat(30)
+
+        console.log(salida);
+        alert(salida);
+        document.getElementById("salida").innerHTML = salida;
+        document.getElementById("numeroMonitores").innerHTML = `Número de Monitores a instalar: ${numeroMonitores}`;
+    </script>
+    <div id="salida"></div>
+    <div id="numeroMonitores"></div>
+</body>
+</html>

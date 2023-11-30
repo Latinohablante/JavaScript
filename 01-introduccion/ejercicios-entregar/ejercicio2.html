@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio introducción JavaScript Campers 2</title>
+</head>
+<body>
+    <script>
+        let n1 = Number(prompt("Ingrese el número de campers antiguos: "))
+
+        let n2 = Number(prompt("Ingrese el número de campers nuevos: "))
+
+        let numeroUsuarios = (n1 + n2) / n1;
+
+        let salida = `El numero de usuarios Linux en cada computadora es: ${numeroUsuarios}\n` + "-".repeat(30)
+
+        console.log(salida);
+        alert(salida);
+        document.getElementById("salida").innerHTML = salida;
+        
+    </script>
+    <div id="salida"></div>
+    
+</body>
+</html>
