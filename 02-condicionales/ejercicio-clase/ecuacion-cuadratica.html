@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecuación cuadrática : Ejercicio en clase</title>
+</head>
+<body>
+    <script>
+        let a = Number(prompt("Ingrese el número a? "));
+
+        let b = Number(prompt("Ingrese el número b? "));
+
+        let c = Number(prompt("Ingrese el número c? "));
+
+        let x1 = (-b + ((b ** 2) - (4 a * c))**0.5) / 2a;
+
+        let x2 = (-b - ((b ** 2) - (4 a * c))**0.5) / 2a;
+
+        if (((b ** 2) - (4 a * c)) > 0) {
+            alert("No tiene solución en los números reales")
+        } else if (a == 0) {
+            alert ("No es una ecuación cuadrática")
+        } else {
+            alert(x1)
+            alert(x2)
+        }
+
+    </script>
+</body>
+</html>
