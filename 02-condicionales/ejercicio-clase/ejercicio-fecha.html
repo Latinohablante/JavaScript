@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecuación cuadrática : Ejercicio en clase</title>
+    
+</head>
+<body>
+    <script>
+        let fecha = prompt("Ingrese la fecha en formato DD/MM/AAAA ")
+
+        let dia = Number(fecha.slice(0,2))
+
+        let mes = Number(fecha.slice(3,5))
+
+        let anio = Number(fecha.slice(6,10))
+
+
+        if (dia <= 0 || dia >= 31) {
+            alert("Error al ingresar el día. Ingrese la fecha de nuevo.")
+        } else if (dia <= 0 || mes >= 12) {
+            alert("Error al ingresar el mes. Ingrese la fecha de nuevo.")
+        } else if (anio <= 0 || anio >= 2024) {
+            alert("Error al ingresar el año. Ingrese la fecha de nuevo.")
+        }
+         else {
+            
+            alert("La fecha ingresada es válida")
+            
+        }
+
+    </script>
+</body>
+</html>
