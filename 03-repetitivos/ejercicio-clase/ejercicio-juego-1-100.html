@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinar número del 1 al 100</title>
+</head>
+<body>
+    <script>
+        let min = 1
+        let max = 100
+
+        let random = Math.floor(Math.random()*max);
+        alert(random)
+
+        do {
+            minum = Number(prompt("Escriba un numero entre 0 y 100: "))
+
+            if (minum < random) {
+                alert("El numero a adivinar es mayor")
+                alert("sigue intentando")
+            } else if (minum > random) {
+                alert("El numero a adivinar es menor")
+                alert("sigue intentando")
+            } 
+        } while(minum != random) 
+
+        alert("Acertaste")
+    </script>
+</body>
+</html>
