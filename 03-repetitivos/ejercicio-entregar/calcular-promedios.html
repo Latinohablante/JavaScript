@@ -8,45 +8,37 @@
 <body>
 
   <script>
-    // Función principal para calcular la media de números positivos
-    function calcularMedia() {
-      let suma = 0;
-      let contador = 0;
+    let suma = 0;
+    let contador = 0;
 
-      // Obtener referencias a elementos HTML
-      let numerosLista = document.getElementById('numeros-lista');
-      let inputNumero = document.getElementById('input-numero');
-      let resultadoMedia = document.getElementById('resultado-media');
+    // Obtener referencia al elemento HTML para la lista y el resultado
+    let numerosLista = document.getElementById('numeros-lista');
+    let resultadoMedia = document.getElementById('resultado-media');
 
-      // Bucle para obtener números positivos hasta que se introduzca uno negativo
-      do {
-        // Solicitar al usuario que ingrese un número
-        let numero = Number(prompt('Introduce un número positivo (ingresa un número negativo para finalizar):'));
+    // Bucle para obtener números positivos hasta que se introduzca uno negativo
+    while (true) {
+      // Solicitar al usuario que ingrese un número
+      let numero = Number(prompt('Introduce un número positivo (ingresa un número negativo para finalizar):'));
 
-        if (numero < 0) {
-          break;
-        }
-
-        // Agregar el número a la lista
-        numerosLista.innerHTML += '<li>' + numero + '</li>';
-
-        // Actualizar la suma y el contador
-        suma += numero;
-        contador++;
-
-      } while (true); 
-
-      // Calcular la media y mostrar el resultado
-      if (contador > 0) {
-        let media = suma / contador;
-        resultadoMedia.innerHTML = 'Media: ' + media.toFixed(2);
-      } else {
-        resultadoMedia.innerHTML = 'No se introdujeron números positivos.';
+      if (numero < 0) {
+        break;
       }
-    }
-  // Llamar a la función principal al cargar la página
-  window.onload = calcularMedia;
 
+      // Agregar el número a la lista
+      numerosLista.innerHTML += '<li>' + numero + '</li>';
+
+      // Actualizar la suma y el contador
+      suma += numero;
+      contador++;
+    }
+
+    // Calcular la media y mostrar el resultado
+    if (contador > 0) {
+      let media = suma / contador;
+      resultadoMedia.innerHTML = 'Media: ' + media.toFixed(2);
+    } else {
+      resultadoMedia.innerHTML = 'No se introdujeron números positivos.';
+    }
   </script>
 
   <!-- Elementos HTML para mostrar la lista y el resultado -->
@@ -56,3 +48,4 @@
 
 </body>
 </html>
+
