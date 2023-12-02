@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function atletas(nombre, marca) {
+            
+        }
+        let n = Number(prompt("Ingrese el numero de atletas finalistas: "))
+        let marca2 = 0
+        let nombre2 = ""
+        const record = 15.50
+        const premio = 500
+
+        for (i=1; i<=n ; i++) {
+            let nombre = prompt("Ingrese el nombre del atleta")
+            let marca1 = Number(prompt("Ingrese la marca del atleta"))
+            
+            if (marca1 > marca2) {
+                marca2 = marca1
+                nombre2 = nombre
+            }
+        }
+        
+        alert(`La marca más alta es ${marca2} de ${nombre2}`)
+        
+        if (marca2 > record) {
+            alert(`Felicidades ${nombre2} rompiste el record de ${record} con ${marca2}, ganaste ${premio} millones`)
+        }
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio dos números</title>
+</head>
+<body>
+    <script>
+        const dosNumeros = function(a, b) {
+            
+            if (num1 > num2) {
+                let suma = num1 + num2
+                let resta = num1 - num2
+
+                return `La suma es ${suma} y la resta es ${resta}`
+            } else if (num1 <= num2) {
+                let producto = num1 * num2
+                let division = num1 / num2
+
+                return `El producto es ${producto} y la división es ${division}`
+            }
+        }
+
+        let num1 = Number(prompt("Ingrese el numero 1"))
+        let num2 = Number(prompt("Ingrese el numero 2"))
+
+        alert(dosNumeros(num1,num2))
+
+    </script>
+</body>
+</html>

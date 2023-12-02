@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecuación cuadrática : Ejercicio funciones</title>
+    
+</head>
+<body>
+    <script>
+        function cuadratica(a, b, c) {
+            let raiz = b**2 - 4 * a * c
+            let resultado = undefined;
+            if (raiz < 0) {
+                resultado = NaN;
+            } else {
+                let x1 = (-b + raiz ** 0.5) / (2 * a)
+                let x2 = (-b - raiz ** 0.5) / (2 * a)
+                resultado = `X1= ${x1}\nX2= ${x2}\n`
+            }
+
+            return resultado;
+        }
+
+        const raizCuad = (a, b, c) => b**2 - 4 * a * c;
+
+        const cuadra = (a, b, c) => {
+            let raiz = raizCuad(a, b, c)
+            let resultado = undefined;
+            if (raiz < 0) {
+                resultado = NaN;
+            } else {
+                let x1 = (-b + raiz ** 0.5) / (2 * a)
+                let x2 = (-b - raiz ** 0.5) / (2 * a)
+                resultado = `X1= ${x1}\nX2= ${x2}\n`
+            }
+
+            return resultado;}
+
+        let a = Number(prompt("Ingrese el valor de a: "))
+
+        if (a==0) {
+            alert("No es una ecuación cuadrática")
+        } else {
+            let b = Number(prompt("Ingrese el valor de b: "))
+            let c = Number(prompt("Ingrese el valor de c: "))
+
+            let r = cuadratica(a, b, c);
+            if (r.length > 0 && r != "NaN") {
+                alert(r)
+            } else {
+                alert("La respuesta no existe en los reales")
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>
