@@ -8,10 +8,30 @@
 <body>
 
     <script>
-        
+
+        const leerNum = function (msg) {
+                let num;
+                let repita;
+                do {
+                    repita = false
+                    nota = Number(prompt(msg))
+                    if (nota === 0) {
+                        nota = undefined
+                        break
+                    }
+                    else if (isNaN(nota) || nota <= 0 ) {
+                        alert("Ingrese un número válido")
+                        repita = true
+                    }
+                } while (repita)
+                return nota;
+            }
+
+
         let nombre = prompt("Ingrese el nombre del artículo")
-        let precio = Number(prompt("Ingrese el precio del artículo"))
-        let cantidad = Number(prompt("Ingrese la cantidad de artículos: "))
+        let precio = leerNum("Ingrese el precio del artículo")
+        let cantidad = leerNum("Ingrese la cantidad de artículos: ")
+
 
         let total = precio * cantidad
         
