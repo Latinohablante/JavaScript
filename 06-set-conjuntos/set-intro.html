@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conjuntos</title>
+</head>
+<body>
+    <script>
+        // Crear el conjunto
+        let letras = new Set()
+
+        //Agregar elementos
+        letras.add("b")
+        letras.add("c")
+        letras.add("y")
+        console.log(letras)
+
+        // Borrar elementos
+        console.log(letras.delete("a"))
+        console.log(letras.delete("y"))
+        console.log(letras)
+
+        // si el elemento existe dentro del conjunto
+        console.log(letras.has("y"))
+        console.log(letras.has('c'))
+
+        // Recorrido con foreach
+        letras.forEach(l => console.log(l))
+
+        // recorrido con for of
+        for (const l of letras.values()) {
+            console.log(l)
+        }
+
+        // recorrido con for of
+        for (const l of letras) {
+            console.log(l)
+        }
+
+        console.log("Tamaño del conjunto: " + letras.size)
+        
+    </script>
+</body>
+</html>
