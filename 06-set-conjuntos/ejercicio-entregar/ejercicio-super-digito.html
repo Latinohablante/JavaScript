@@ -75,7 +75,7 @@
             //Verificar si el número del usuario es de un solo dígito o múltiple
             function super_digit(numberUser, repeat) {
                 if (numberUser >= 0 && numberUser <= 9 && String(numberUser).length === 1 && numRepeatK === 1) {
-                   resultado.innerHTML = `El superdígito del número <strong>${numUserX}</strong> es <strong><em>${numberUser}</em></strong>.`;
+                   resultado.innerHTML = `El superdígito del número <strong>${numberUser}</strong> es <strong><em>${numberUser}</em></strong>.`;
 
                 } else {
                     let strNumberUser = String(numberUser).repeat(repeat);
@@ -86,7 +86,7 @@
                 }
             }
 
-            super_digit(validarNumUserX(numUserX), validarNumRepeatK(numRepeatK));
+            super_digit(numUserX, numRepeatK);
         </script>
     </body>
 

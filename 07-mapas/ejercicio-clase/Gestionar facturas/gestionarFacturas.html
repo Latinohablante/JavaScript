@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gestor de facturas</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script src="./main.js" defer></script>
+    </head>
+
+    <body>
+        <header id="encabezado">
+            <h1>Gestor de Facturas</h1>
+        </header>
+
+        <main id="principal">
+            <table class="tabla" border="1">
+                <thead>
+                    <tr>
+                        <th>N° Factura</th>
+                        <th>Valor Factura</th>
+                    </tr>
+                </thead>
+
+                <tbody class="tabla_body"></tbody>
+            </table>
+
+            <div id="resultados"></div>
+
+            <button onclick="agregarFactura()">Agregar</button>
+            <button onclick="pagarFactura()">Pagar</button>
+        </main>
+    </body>
+
+</html>
