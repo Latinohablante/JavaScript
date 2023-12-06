@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturas de una empresa</title>
+    <style>
+        table {
+            width: 30%;
+        }
+
+        .veces {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Facturas pendientes de cobro de una empresa</h1>
+    <hr>
+    <h3>Texto:</h3>
+    <p id="texto"></p>
+    <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Código Factura</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody id="tdatos"></tbody>
+    </table>
+
+    <br><br>
+    <button onclick="agregarFactura()">Agregar</button>
+    <button onclick="alert('Cancelar facturas')">Cancelar</button>
+
+    <script>
+        //Contar el numero de veces que aparece una palabra en un texto
+        //const llamado = () => prompt('Codigo Factura')
+        const printTable = function (mapFact) {
+            let tabla = ""
+            for (const [f, p] of mapFact)
+                tabla += `<tr><td>${f}</td><td class='precio'>$${p}</td></tr>`
+
+            return tabla
+        }
+
+        function agregarFactura() {
+            let codigoFactura = Number(prompt("Ingrese el código de la factura"))
+            let valorPagar = Number(prompt("Ingrese el valor de la factura"))
+
+            dicFacturas.set(codigoFactura,valorPagar)
+        }
+
+        const texto = agregarFactura()
+            (texto !== null && texto !== "") ?
+            document.getElementById("tdatos").innerHTML = printTable(vecesPal(texto)) :
+            document.getElementById("tdatos").innerHTML = "<i>El usuario no ingresó texto</i>"
+
+    </script>
+</body>
+
+</html>

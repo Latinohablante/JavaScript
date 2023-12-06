@@ -1,18 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palabras en un texto</title>
+    <title>Cantidad de veces de palabras en el texto</title>
+    <style>
+        table {
+            width: 30%;
+        }
+
+        .veces {
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
+    <h1>Cantidad de veces de palabras en el texto</h1>
+    <hr>
+    <h3>Texto:</h3>
+    <p id="texto"></p>
+    <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Palabras</th>
+                <th>Veces</th>
+            </tr>
+        </thead>
+        <tbody id="tdatos"></tbody>
+    </table>
+
     <script>
-        let texto = prompt("Ingrese el texto: ")
-        let separado = texto.split(" ")
-        console.log(separado)
-        const palabras = new Map()
-        console.log(palabras)
+        //Contar el numero de veces que aparece una palabra en un texto
+        const printTable = function (mapPals) {
+            let tabla = ""
+            for (const [p, v] of mapPals)
+                tabla += `<tr><td>${p}</td><td class='veces'>${v}</td></tr>`
+
+            return tabla
+        }
+
+        const vecesPal = function (pal) {
+            const vpals = pal.toLowerCase().split(" ")
+            const mPals = new Map()
+
+            vpals.forEach(pal => (mPals.has(pal)) ?
+                mPals.set(pal, mPals.get(pal) + 1) :
+                mPals.set(pal, 1));
+            return mPals
+        }
+
+        const texto = prompt("Ingrese el texto")
+            (texto !== null && texto !== "") ? 
+            document.getElementById("tdatos").innerHTML = printTable(vecesPal(texto)) :
+            document.getElementById("tdatos").innerHTML = "<i>El usuario no ingresó texto</i>"
 
     </script>
 </body>
+
 </html>
