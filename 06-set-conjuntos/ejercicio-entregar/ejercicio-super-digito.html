@@ -6,24 +6,29 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Superdígito | JS</title>
+        <title>Ejercicio Superdígito</title>
     </head>
     
     <body>
         <p id="resultado"></p>
 
         <script>
-            const resultado = document.getElementById("resultado");
-            let numUserX = Number(prompt("Digite un número positivo: "));
-            let numRepeatK = Number(prompt("¿Cuántas veces quiere que se repita el número?: "));
-            let resultadoEjercicio = 0;
+            
 
+
+
+            const resultado = document.getElementById("resultado");
+            let numUserX = "", numRepeatK = 1
+            numUserX = validarNumUserX(Number(prompt("Digite un número positivo: ")));
+            numRepeatK = validarNumRepeatK(Number(prompt("¿Cuántas veces quiere que se repita el número?: ")));
+            let resultadoEjercicio = 0;
 
             // Validando entradas de usuario
             function validarNumUserX(numUser) {
                 while (numUser < 0 || isNaN(numUser)) {
                     alert("Error, el número ingresado es inválido. Inténtelo de nuevo.");
                     numUserX = Number(prompt("Digite un número positivo: "));
+                    numUser = numUserX;
                 }
 
                 return numUserX;
@@ -38,6 +43,9 @@
 
                 return numRepeatK;
             }
+
+
+            
 
 
             // Funciones necesarias
