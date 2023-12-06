@@ -62,6 +62,7 @@ function agregarInfoDict(clave, valor) {
 }
 
 function eliminarInfoDict(id) {
+    // facturas.get(id) recibe el codigo de la factura y regresa su precio
     sumarPrecio(facturasDict.get(id), "cobrado");
     console.log(facturasDict.get(id), typeof facturasDict.get(id));
     sumarPrecio(facturasDict.get(id), "pendienteRestar");
