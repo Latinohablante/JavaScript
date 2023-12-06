@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduccion Maps</title>
+</head>
+<body>
+    <script>
+        // new Map() crea el mapa
+        const frutas = new Map([["Manzanas", 2500], ["Peras", 2000], ["Banano", 1500]])
+        console.log(frutas)
+        console.log("Cantidad de llaves: " + frutas.size)
+
+        //agregar frutas
+        frutas.set("Pitahaya", 5000)
+        frutas.set("guama", 3000)
+        console.log(frutas)
+        console.log("Cantidad de llaves: " + frutas.size)
+
+        // obtener el valor
+        console.log("El valor de la fruta de camilo es: " + frutas.get("Mango"))
+
+
+        // delete borra el contenido y regresa verdadero si pudo borrarlo y falso si no
+        console.log(frutas.delete("Pepino"))
+        console.log(frutas.delete("Pitahaya"))
+        console.log(frutas)
+        console.log("Cantidad de llaves: " + frutas.size)
+
+        // Has regresa true si existe o false si no existe
+        console.log("El mango existe en la canasta de frutas: " + frutas.has("Mango"))
+
+        //recorre los dos valores del map, primero entrega
+        frutas.forEach((v, k) => {
+            console.log(`El precio de ${k} es: $${v}`)
+        })
+        
+        //  entries regresa la pareja
+        for(const e of frutas.entries()) {
+            console.log(`El precio de ${e[0]} es: $${e[1]}`)
+        }
+
+        
+    </script>
+</body>
+</html>
