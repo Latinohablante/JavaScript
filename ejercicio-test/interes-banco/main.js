@@ -1,12 +1,47 @@
+// script Interés Banco
+
 const principal = document.getElementById("principal");
 const cuerpoTabla = principal.querySelector(".tabla_body");
 const resultados = document.getElementById("resultados");
 const facturasDict = new Map();
+const bancoDict = new Map();
 let contador = 0, cantCobrada = 0, cantPendiente = 0;
+let monto = 0, interes = 0, numPagoMens = 0;
+let total = 0;
+// let monto = validarNumero(prompt("Ingrese el monto"));
+//let interes = validarNumero(prompt("ingrese el interés"));
+//let numPagoMens = validarNumero(prompt("Ingrese la mensualidad"));
+
+//calculos matemáticos
+function valorTotal(monto, interes) {
+    total = monto + monto * (interes/100) 
+    console.log(total)
+    return total
+    
+}
+
+function valorMensual(total, numPagoMens) {
+    mensual = total / numPagoMens 
+    
+    return mensual
+    
+}
 
 
 // FUNCIONES DE VALIDACIÓN
 function validarPrecio(precio) {
+    while (true) {
+        if (Number(precio) <= 0 || isNaN(Number(precio))) {
+            alert("Error, el precio ingresado no es válido. No puede contener letras, caracteres especiales o números negativos. Inténtelo de nuevo.");
+        } else {
+            break;
+        }
+    }
+
+    return Number(precio);
+}
+
+function validarNumero(precio) {
     while (true) {
         if (Number(precio) <= 0 || isNaN(Number(precio))) {
             alert("Error, el precio ingresado no es válido. No puede contener letras, caracteres especiales o números negativos. Inténtelo de nuevo.");
@@ -45,12 +80,6 @@ function sumarPrecio(cantidad, tipoSuma) {
     }
 }
 
-// function calcularPendientePagar() {
-//     facturasDict.forEach((precio) => {
-        
-//     })
-// }
-
 function agregarInfoDict(clave, valor) {
     facturasDict.set(clave, valor);
     
@@ -60,6 +89,15 @@ function agregarInfoDict(clave, valor) {
         return false;
     }
 }
+
+// Crear diccionario
+
+function diccionario(mes,[valor, valorTotal, capital, interes, total]) {
+    for (i=0 )
+    bancoDict.set(mes,)
+}
+
+
 
 function eliminarInfoDict(id) {
     // facturas.get(id) recibe el codigo de la factura y regresa su precio
@@ -94,6 +132,24 @@ function agregarFactura() {
     escribirInfoTabla();
 }
 
+function agregarMonto() {
+    monto = validarNumero(prompt("Ingrese el monto: "));
+    escribirInfoTabla();
+    
+}
+
+function agregarInteres() {
+    interes = validarNumero(prompt("Ingrese el interés(anual): "));
+    escribirInfoTabla();
+    
+}
+
+function agregarMensualidad() {
+    numPagoMens = validarNumero(prompt("Ingrese el número de pagos en meses: "));
+    escribirInfoTabla();
+    
+}
+
 function pagarFactura() {
     let idFactura = validarID(prompt("Digite el número de la factura a pagar: "));
 
@@ -106,9 +162,11 @@ function pagarFactura() {
 
 function escribirInfoTabla() {
     resultados.innerHTML = `
-        <span title="Cantidad de facturas">Cantidad de facturas: ${contador}</span>
-        <span title="Cantidad cobrada">Cant. Cobrada: $${cantCobrada} COP</span>
-        <span title="Cantidad pendiente de cobro">Cant. Pendiente: $${cantPendiente} COP</span>
+        <span title="Monto del crédito">Monto del crédito: $${monto}</span>
+        <span title="Tasa de interés (anual)">Tasa de interés (anual): ${interes}%</span>
+        <span title="Número de pagos (mensuales)">Número de pagos (mensuales): ${numPagoMens}</span>
+        <span title="Valor total">Valor total: $${valorTotal(monto,interes)} COP</span>
+        <span title="Valor mensual">Valor mensual: $${valorMensual(total,numPagoMens)} COP</span>
     `;
 }
 
