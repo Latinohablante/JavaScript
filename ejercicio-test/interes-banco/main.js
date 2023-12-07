@@ -54,6 +54,7 @@ function validarID(id) {
     while (true) {
         if (Number(id) <= 0 || isNaN(Number(id))) {
             alert("Error, el número de factura ingresado es inválido. No puede contener letras, caracteres especiales o números negativos. Inténtelo de nuevo.");
+            prompt("Ingrese el dato nuevamente");
         } else {
             break;
         }
@@ -177,7 +178,7 @@ function diccionario(numPagoMens, interes, monto) {
         total = operacion / numPagoMens
         valor = monto - (capital * i)
         valTotal = operacion - (total * i)
-        interes = monto * (numPagoMens / 100)
+        interes = (monto * (numPagoMens / 100)) / 12
         
         cuerpoTabla.innerHTML += `
             <tr class="mes${mes}">
@@ -196,9 +197,8 @@ function diccionario(numPagoMens, interes, monto) {
     }
         
 }
-//console.log(diccionario(numPagoMens,interes,monto));
 
-diccionario(numPagoMens,interes,monto);
+
 escribirInfoTabla();
 
 
