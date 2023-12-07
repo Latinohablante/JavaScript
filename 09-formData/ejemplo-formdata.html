@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="datos">
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre">
+        <br>
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" id="edad">
+        
+
+
+    </form>
+    <button onClick="capturarForm()">enviar</button>
+    
+    <script>
+        function capturarForm() {
+            //const form = document.querySelector("form")
+            const form = document.getElementById("datos")
+            const formData = new FormData(form)
+
+            for (const elem of formData) {
+                if(elem[1] >= 17) {
+                    console.log("Puedes entrar a Campus")
+                }
+            }
+            formData.append("nombre", "Oscar")
+            const nombres = formData.getAll("nombre")
+            console.log(nombres)
+        }
+        // https://refactored-space-train-ww5rqgqwxx9c9pjj-3000.app.github.dev/09-formData/ejemplo-formdata.html
+    </script>
+</body>
+</html>

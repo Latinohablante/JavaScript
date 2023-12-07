@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const persona = {
+            name: "John Doe",
+            age: 30,
+            valores: [1, 2],
+            adress: {
+                street: "Main Street",
+                city: "New York",
+                state: "NY"
+            }
+        };
+
+        const clonado = Object.assign({},persona);
+        console.log(clonado);
+
+        const clonedPerson = {...persona};
+        clonado.valores.push(3);
+
+        console.log(clonedPerson);
+
+        const o1 = { a: 1 };
+        const o2 = { b: 2 };
+        const o3 = { c: 3 };
+
+
+        //copiar diferentes objetos
+        const obj = Object.assign({}, o1,o2,o3)
+        console.log(obj)
+
+        const ot = { ...o1, ...o2, ...o3 }
+        console.log(ot)
+    </script>
+</body>
+</html>

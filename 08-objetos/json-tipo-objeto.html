@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Tipo Objeto</title>
+</head>
+<body>
+    <script>
+        const objeto = {
+    "empleados": [
+        {
+            "nombre": "Juan Pérez",
+            "apellido": "López",
+            
+        },
+        {
+            "nombre": "Ana",
+            "apellido": "González",
+            nombreCompleto: function() {
+                return this.nombre + " " + this.apellido
+            }
+        },
+        {
+            "nombre": "Pedro",
+            "apellido": "Sánchez",
+            nombreCompleto: function() {
+                return this.nombre + " " + this.apellido
+            }
+        },
+    ],
+    
+}
+
+console.log(objeto.empleados[2].apellido)
+console.log(objeto.empleados[2].nombreCompleto())
+    </script>
+</body>
+</html>
+
