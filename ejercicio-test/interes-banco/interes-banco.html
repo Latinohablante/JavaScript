@@ -19,7 +19,7 @@
         <button onclick="agregarMonto()">Monto</button>
         <button onclick="agregarInteres()">Interés</button>
         <button onclick="agregarMensualidad()">Mensualidad</button>
-        
+        <button onclick="diccionario(numPagoMes,interes,monto)">Tabla</button>
 
         <div id="resultados"></div>
 
@@ -27,8 +27,12 @@
             <table class="tabla" border="1">
                 <thead>
                     <tr>
-                        <th>N° Factura</th>
-                        <th>Valor Factura</th>
+                        <th>Mes</th>
+                        <th>Valor</th>
+                        <th>Valor Total</th>
+                        <th>Capital</th>
+                        <th>Interés</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
 

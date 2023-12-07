@@ -90,12 +90,36 @@ function agregarInfoDict(clave, valor) {
     }
 }
 
-// Crear diccionario
+// Agregar info al diccionario
 
-function diccionario(mes,[valor, valorTotal, capital, interes, total]) {
-    for (i=0 )
-    bancoDict.set(mes,)
+function diccionario(numPagoMens, interes, monto) {
+    for (let i = 0 ; i < numPagoMens ; i++){
+        mes = i + 1
+        capital = monto / numPagoMens
+        total = valorTotal(monto, interes) / numPagoMens
+        valor = monto - (capital * i)
+        valTotal = valorTotal(monto, interes) - (total * i)
+        interes = monto * (numPagoMens / 100)
+        
+        cuerpoTabla.innerHTML += `
+            <tr class="mes${mes}">
+                <td>${mes}</td>
+                <td>${valor}</td>
+                <td>${valTotal}</td>
+                <td>${capital}</td>
+                <td>${interes}</td>
+                <td>${total}</td>
+            </tr>
+        `;
+        
+        
+
+        bancoDict.set(mes,[valor,valTotal, capital, interes, total])
+    }
+        
+
 }
+// diccionario(numPagoMens,interes,monto)
 
 
 
@@ -170,7 +194,21 @@ function escribirInfoTabla() {
     `;
 }
 
+function escribirTabla() {
+    diccionario(numPagoMens,interes,monto);
+    if (agregarInfoDict(numeroFactura, precioFactura)) {
+        cuerpoTabla.innerHTML += `
+            <tr class="mes${numeroFactura}">
+                <td>${numeroFactura}</td>
+                <td>${precioFactura}</td>
+            </tr>
+        `;
+    }
+    
+}
+
 escribirInfoTabla();
 
+
 //ver html
-//https://refactored-space-train-ww5rqgqwxx9c9pjj-5501.app.github.dev/07-mapas/ejercicio-clase/Gestionar%20facturas/gestionarFacturas.html
+//https://refactored-space-train-ww5rqgqwxx9c9pjj-5501.app.github.dev/ejercicio-test/interes-banco/interes-banco.html
