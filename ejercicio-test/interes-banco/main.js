@@ -3,14 +3,11 @@
 const principal = document.getElementById("principal");
 const cuerpoTabla = principal.querySelector(".tabla_body");
 const resultados = document.getElementById("resultados");
-const facturasDict = new Map();
 const bancoDict = new Map();
 let contador = 0, cantCobrada = 0, cantPendiente = 0;
 let monto = 0, interes = 0, numPagoMens = 0;
 let total = 0;
-// let monto = validarNumero(prompt("Ingrese el monto"));
-//let interes = validarNumero(prompt("ingrese el interés"));
-//let numPagoMens = validarNumero(prompt("Ingrese la mensualidad"));
+
 
 //calculos matemáticos
 function valorTotal(monto, interes) {
@@ -90,35 +87,7 @@ function agregarInfoDict(clave, valor) {
     }
 }
 
-// Agregar info al diccionario
 
-function diccionario(numPagoMens, interes, monto) {
-    for (let i = 0 ; i < numPagoMens ; i++){
-        mes = i + 1
-        capital = monto / numPagoMens
-        total = valorTotal(monto, interes) / numPagoMens
-        valor = monto - (capital * i)
-        valTotal = valorTotal(monto, interes) - (total * i)
-        interes = monto * (numPagoMens / 100)
-        
-        cuerpoTabla.innerHTML += `
-            <tr class="mes${mes}">
-                <td>${mes}</td>
-                <td>${valor}</td>
-                <td>${valTotal}</td>
-                <td>${capital}</td>
-                <td>${interes}</td>
-                <td>${total}</td>
-            </tr>
-        `;
-        
-        
-
-        bancoDict.set(mes,[valor,valTotal, capital, interes, total])
-    }
-        
-
-}
 // diccionario(numPagoMens,interes,monto)
 
 
@@ -159,18 +128,21 @@ function agregarFactura() {
 function agregarMonto() {
     monto = validarNumero(prompt("Ingrese el monto: "));
     escribirInfoTabla();
+    diccionario(numPagoMens,interes,monto);
     
 }
 
 function agregarInteres() {
     interes = validarNumero(prompt("Ingrese el interés(anual): "));
     escribirInfoTabla();
+    diccionario(numPagoMens,interes,monto);
     
 }
 
 function agregarMensualidad() {
     numPagoMens = validarNumero(prompt("Ingrese el número de pagos en meses: "));
     escribirInfoTabla();
+    diccionario(numPagoMens,interes,monto);
     
 }
 
@@ -194,19 +166,39 @@ function escribirInfoTabla() {
     `;
 }
 
-function escribirTabla() {
-    diccionario(numPagoMens,interes,monto);
-    if (agregarInfoDict(numeroFactura, precioFactura)) {
+
+// Agregar info al diccionario
+
+function diccionario(numPagoMens, interes, monto) {
+    let operacion = valorTotal(monto, interes)
+    for (let i = 0 ; i < numPagoMens ; i++){
+        mes = i + 1
+        capital = monto / numPagoMens
+        total = operacion / numPagoMens
+        valor = monto - (capital * i)
+        valTotal = operacion - (total * i)
+        interes = monto * (numPagoMens / 100)
+        
         cuerpoTabla.innerHTML += `
-            <tr class="mes${numeroFactura}">
-                <td>${numeroFactura}</td>
-                <td>${precioFactura}</td>
+            <tr class="mes${mes}">
+                <td>${mes}</td>
+                <td>${valor}</td>
+                <td>${valTotal}</td>
+                <td>${capital}</td>
+                <td>${interes}</td>
+                <td>${total}</td>
             </tr>
         `;
-    }
-    
-}
+        
+        
 
+        bancoDict.set(mes,[valor,valTotal, capital, interes, total])
+    }
+        
+}
+//console.log(diccionario(numPagoMens,interes,monto));
+
+diccionario(numPagoMens,interes,monto);
 escribirInfoTabla();
 
 
