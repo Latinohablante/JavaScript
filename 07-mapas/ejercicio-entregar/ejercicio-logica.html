@@ -7,7 +7,32 @@
 </head>
 <body>
     <script>
-        
+        let words=prompt("Ingrese las palabras");
+        mapa = words.split(" ");
+        let prefix = prompt("Ingrese el prefix");
+        contador = 0;
+        let palabraPrefix = new Set();
+        let text = "";
+
+        for(let i = 0; i < mapa.length; i++) {
+            if(mapa[i].toLowerCase().startsWith(prefix)) {
+                contador++;
+                palabraPrefix.add(mapa[i]);
+            };
+            
+                
+            }
+            if (contador === 1) {
+                alert(`La palabra que contienen ${prefix} como prefix es: ${palabraPrefix}`)
+            }
+            else if (contador > 1 ) {
+                for ( let item of palabraPrefix) {
+                    text += item + ', ';
+                    
+                }
+                alert(`Las ${contador} palabras que contienen ${prefix} como prefix son: ${text}`)
+            console.log(`Las ${contador} palabras que contienen "${prefix}" como prefix son: ${item}`);
+        }
         //https://latinohablante.github.io/JavaScript/07-mapas/ejercicio-entregar/ejercicio-logica.html
     </script>
 </body>
