@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanzamiento de 10 dados</title>
+</head>
+<body>
+    <script>
+        const doTask = (iterations, callback) => {
+            const numbers = [];
+
+            for (let i = 0; i < iterations; i++) {
+                const number = 1 + Math.floor(Math.random() * 6);
+                numbers.push(number);
+                if (number === 6) {
+                    callback({
+                        error: true,
+                        iter: i,
+                        message: "Se ha sacado un 6"
+                    });
+                    return;
+                }
+            }
+            // Termina el bucle y no se ha sacado 6
+            return callback(null, {
+                error: false,
+                value: numbers
+            });
+        }
+        doTask(10, function(err, result) {
+            if (err) {
+                console.error(">>Error: ", err.message);
+                console.log(err);
+                return;
+            }
+            console.log("Tiradas correctas: ", result.value);
+        });
+    </script>
+</body>
+</html>

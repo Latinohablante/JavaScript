@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function realizarTareaAsincronica(callback) {
+            setTimeout(function() {
+                console.log("Tarea asincrónica completada");
+                callback();
+            }, 2000);
+        }
+
+        function miCallback() { 
+            // funcion de callback
+            console.log("El callback se ha ejecutado");
+        }
+
+        // Llamando a la funcion asincrónica y pasando el callback
+        realizarTareaAsincronica(miCallback);
+        console.log("Tarea principal continúa");
+    </script>
+</body>
+</html>

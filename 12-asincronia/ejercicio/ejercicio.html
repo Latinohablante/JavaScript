@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio</title>
+</head>
+<body>
+    <script>
+        function operation() {
+            console.log("No le des demasiadas vueltas el código debe ser simple")
+        }
+        function ruidosa(funcion) {
+            return (num) => {
+                for (let i = 0; i<num; i++) {
+                    funcion()
+                }
+            };
+        }
+        ruidosa(operation)(3);
+    </script>
+</body>
+</html>
