@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación correo</title>
+</head>
+<body>
+    <script>
+        function validarCorreo(input) {
+            //console.log(input.split("@").length)
+            if (input.split("@").length != 2)
+            throw new Error('Ingrese un correo válido');
+        return input;
+        }
+        try {
+            const input = prompt('Ingrese su correo electrónico');
+            const validado = validarCorreo(input);
+            console.log(`El correo ${input} es valido`);
+        } catch (error) {
+            console.error(`Se produjo un error: ${error.message}`);
+        }
+    </script>
+</body>
+</html>

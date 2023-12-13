@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try-Catch</title>
+</head>
+<body>
+    <script>
+        try {
+            throw "Ninguno pasó el quiz";
+        } catch(e) {
+            console.log(e)
+        } finally {
+            console.log("Esto se va a ejecutar sí o sí")
+        }
+
+        try {
+            // 1 es una
+            1;
+        } catch(e) {
+            console.log(e)
+        } finally {
+            console.log("Esto se va a ejecutar sí o sí")
+        }
+    </script>
+</body>
+</html>

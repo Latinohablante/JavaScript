@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const datos = [
+    {
+        id: 1,
+        title: "Iron Man",
+        year: 2008
+    },
+    {
+        id: 2,
+        title: "Spiderman:HomeComing",
+        year: 2017
+    },
+    {
+        id: 3,
+        title: "Avengers: Endgame",
+        year: 2019
+    },
+    ];
+
+    // 1. Sincrono
+
+    // const getDatos = () => {
+    //     return datos;
+    // }
+    // console.log(getDatos())
+
+    // 2. Callbacks
+
+    // const getDatos = () => {
+    //     setTimeout( () => {
+    //         return datos;
+    //     }, 1500)
+    // }
+    // console.log(getDatos())
+
+    //const datos = [];
+
+    // 3. Promesas
+    const getDatos = () => {
+        return new Promise((resolve, reject) => {
+            if (datos.length === 0) {
+                reject(new Error("Error. No existen datos"))
+            }
+            setTimeout( () => {
+                resolve(datos);
+            }, 1500)
+        })
+    }
+
+    getDatos()
+        .then((datos) => {console.table(datos)})
+        .catch((err) => {console.error(err.message)})
+
+        const otrosDatos = [];
+
+        // 3.1 Promesas
+    const getOtrosDatos = () => {
+        return new Promise((resolve, reject) => {
+            if (otrosDatos.length === 0) {
+                reject(new Error("Error. No existen datos"))
+            }
+            setTimeout( () => {
+                resolve(otrosDatos);
+            }, 1500)
+        })
+    }
+
+    getOtrosDatos()
+        .then((datos) => {console.table(otrosDatos)})
+        .catch((err) => {console.error(err.message)})
+
+
+    </script>
+</body>
+</html>

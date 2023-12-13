@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio fechas</title>
+</head>
+<body>
+    <script>
+        let fechaPactada = prompt("ingrese la fecha de entrega pactada en formato YYYY-MM-DD")
+        let fechaReal = prompt("ingrese la fecha de entrega real en formato YYYY-MM-DD")
+
+        let fePac = fechaPactada.split("-");
+        let feRe = fechaReal.split("-");
+
+        let pactada = new Date(fePac[0],fePac[1],fePac[2]);
+        let real = new Date(feRe[0],feRe[1],feRe[2]);
+        let dia1 = pactada.getDate();
+        let dia2 = real.getDate();
+        console.log(fePac)
+        console.log(dia1)
+        console.log(feRe)
+        console.log(dia2)
+
+        if (fePac < feRe) {
+            
+            alert("lo entregaste después de la fecha pactada")
+        }
+
+        if (fePac > feRe) {
+            alert("lo entregaste antes de la fecha pactada muy bien")
+        }
+
+
+    </script>
+</body>
+</html>

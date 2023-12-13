@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de una promesa</title>
+</head>
+<body>
+    <script>
+        //Crear una promesa
+        const miPromesa = new Promise ((resolve, reject) => {
+            // Simulamos una operacion asincrónica que toma tiempo en completarse
+            setTimeout(() => {
+                const exito = true; //Cambiar a false para simular un rechazo
+                if (exito) {
+                    resolve("¡La rpomesa se cumplió con éxito!");
+                } else {
+                    reject ("Hubo un error al cumplir la promesa <()");
+                }
+            }, 2000); // Simulamos un retraso de 2 segundos
+        });
+        
+        //consumir la promesa
+        miPromesa
+            .then(resultado => {
+                console.log("Éxito:", resultado); // Manejar el caso de éxito
+            })
+            .catch(error => {
+                console.error("Error:", error); // Manejar el caso de error
+            });
+    </script>
+</body>
+</html>
