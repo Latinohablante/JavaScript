@@ -4,10 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla 100 pokemons</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        thead, tbody {
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
-    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="">
+
+    <main id="principal">
+        <table class="tabla" border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Pokemon</th>
+                </tr>
+            </thead>
+
+            <tbody class="tabla_body"></tbody>
+        </table>
+
     <script>
+        const principal = document.getElementById("principal");
+        const cuerpoTabla = principal.querySelector(".tabla_body");
+
+        
+
         // UTILIZANDO ASYNC AWAIT
         async function pokeApi(nompoke) {
             const url = `https://pokeapi.co/api/v2/pokemon/${nompoke}`;
@@ -19,25 +49,29 @@
                 throw new Error("Error. Pokemon no existe")
 
             const json = await respuesta.json();
-
             // retornar el link de la imagen del pokemon
-            return json.sprites.front_default;
-            console.log(json.sprites.front_default);
+            return [json.sprites.front_default, json.name, json.id];
         }
-        pokeApi("bulbasaur")
+        pokeApi("1")
             .then(nombre => console.log(nombre))
             .catch(error => console.error(error.message));
 
         //funcion que se ejecuta inmediatamente
-        (async function() {
-            try {
-                let urlImg = await pokeApi('pikachu');
-                console.log(urlImg);
 
-                urlImg =await pokeApi('limber');
-                console.log(urlImg);
+        (async function() {
+            for (let i = 0; i<=100; i++) {
+            try {
+                let listaPokemon = await pokeApi(`${i}`);
+                cuerpoTabla.innerHTML += `
+            <tr class="ID1">
+                <td>${listaPokemon[2]}</td>
+                <td>${listaPokemon[1]}</td>
+                <td><img src="${listaPokemon[0]}"</td>
+            </tr>`
+
             } catch (error) {
                 console.error(error.message);
+            }
             }
         })()
     </script>
