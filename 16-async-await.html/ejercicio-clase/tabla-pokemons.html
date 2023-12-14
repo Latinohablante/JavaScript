@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla 100 pokemons</title>
+</head>
+<body>
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="">
+    <script>
+        // UTILIZANDO ASYNC AWAIT
+        async function pokeApi(nompoke) {
+            const url = `https://pokeapi.co/api/v2/pokemon/${nompoke}`;
+
+            const respuesta = await fetch(url);
+
+            //si la respuesta no fue exitosa
+            if (!respuesta.ok)
+                throw new Error("Error. Pokemon no existe")
+
+            const json = await respuesta.json();
+
+            // retornar el link de la imagen del pokemon
+            return json.sprites.front_default;
+            console.log(json.sprites.front_default);
+        }
+        pokeApi("bulbasaur")
+            .then(nombre => console.log(nombre))
+            .catch(error => console.error(error.message));
+
+        //funcion que se ejecuta inmediatamente
+        (async function() {
+            try {
+                let urlImg = await pokeApi('pikachu');
+                console.log(urlImg);
+
+                urlImg =await pokeApi('limber');
+                console.log(urlImg);
+            } catch (error) {
+                console.error(error.message);
+            }
+        })()
+    </script>
+</body>
+</html>

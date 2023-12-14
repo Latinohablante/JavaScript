@@ -59,7 +59,9 @@
         .then((datos) => {console.table(datos)})
         .catch((err) => {console.error(err.message)})
 
-        const otrosDatos = [];
+
+    // va a dar un Error a través del reject
+    const otrosDatos = [];
 
         
     // 3.1 Promesas
@@ -79,6 +81,15 @@
         .catch((err) => {console.error(err.message)})
 
 
+    // 4. Async Await
+    async function obtenerDatos() {
+        try {
+            const datosObtenidos = await getDatos();
+            console.table(datosObtenidos);
+        } catch( error) {
+            console.error(error.message);
+        }
+    }
     </script>
 </body>
 </html>

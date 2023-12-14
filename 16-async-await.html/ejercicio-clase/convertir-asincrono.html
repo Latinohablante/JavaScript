@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        const doTask = (iterations) => {
+            const numbers = [];
+            
+            for (let i = 0; i < iterations; i++) {
+                const number = 1 + Math.floor(Math.random() * 6);
+                numbers.push(number);
+                if (number === 6) {
+                    let dado = {
+                        error: true,
+                        iter: i+1,
+                        };
+                    throw new Error("Se ha sacado un 6" + JSON.stringify(dado))
+                }
+            }
+            return {
+                error: false,
+                value: numbers
+            };
+        }
+
+        console.log( doTask(10) );
+        
+
+        async function lanzarDado() {
+            try {
+                const datoLanzamiento = await doTask();
+                console.log(datoLanzamiento)
+            } catch(error) {
+                console.error(error.message)
+            }
+        }
+        
+        lanzarDado()
+    </script>
+</body>
+</html>
