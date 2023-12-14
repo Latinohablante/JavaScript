@@ -10,6 +10,11 @@
             margin: 0 auto;
             box-sizing: border-box;
         }
+        button {
+            margin: 0 auto;
+            margin-left: 47%;
+           
+        }
 
         thead, tbody {
             text-align: center;
@@ -18,7 +23,7 @@
     </style>
 </head>
 <body>
-    <button onclick="siguiente()">Siguiente</button>
+
     <main id="principal">
         <table class="tabla">
             <thead>
@@ -29,13 +34,14 @@
             <tbody class="tabla_body"></tbody>
         </table>
     </main>
+    <button onclick="siguiente()">Siguiente</button>
     
     <script>
         const principal = document.getElementById("principal");
         const cuerpoTabla = principal.querySelector(".tabla_body");
 
         
-
+        //prueba
         // UTILIZANDO ASYNC AWAIT
         async function pokeApi(nompoke) {
             const url = `https://pokeapi.co/api/v2/pokemon/${nompoke}`;
