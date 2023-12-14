@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asincronía promesas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #resultado p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #000;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Callbacks y Asincronía</h1>
+    </header>
+
+    <main>
+        <section id="instrucciones">
+            <ul>
+                <li> <strong>A</strong> debería aparecer de una cuando se carga la ventana. </li>
+
+                <li> <strong>B</strong> debería aparecer inmediatamente después de A. </li>
+
+                <li> <strong>C</strong> debería aparecer 5 segundos después de A. </li>
+
+                <li> <strong>D</strong> debería aparecer aleatoriamente entre 2 y 5 segundos random después de cargar la ventana. </li>
+
+                <li> <strong>E</strong> debería aparecer 2 segundos después de D. </li>
+
+                <li> <strong>F</strong> debería aparecer 7 segundos después de B. </li>
+
+                <li> <strong>G</strong> debería aparecer 2 segundos después de E. </li>
+
+                <li> <strong>H</strong> debería aparecer 3 segundos después de G. </li>
+            </ul>
+        </section>
+
+        <br/><br/>
+
+        <section id="resultado">
+
+        </section>
+    </main>
+
+    <script>
+        const resultado = document.getElementById("resultado");
+
+        function obtenerHora() {
+                const fecha = new Date();
+                return [fecha.getHours(), fecha.getMinutes(), fecha.getSeconds()].join(":");
+            }
+        
+        let promesaA = new Promise((resolve, reject) => {
+            resultado.innerHTML += `
+                    <p>A [Enviado de: 1] apareció en ${obtenerHora()}</p>
+                `;
+                setTimeout(() => {
+                    resultado.innerHTML += `<p>C [Enviado de: 5] apareció en ${obtenerHora()}</p>`;
+                }, 5000);
+        })
+
+        let promesaB = new Promise((resolve, reject) => {
+            resultado.innerHTML += `
+                    <p>B [Enviado de: 2] apareció en ${obtenerHora()}</p>
+                `;
+                setTimeout(() => {
+                    resultado.innerHTML += `<p>F [Enviado de: 3] apareció en ${obtenerHora()}</p>`;
+                }, 7000);
+
+        })
+
+        let promesaD = new Promise((resolve, reject) => {
+            const segAleatorio = Math.floor(Math.random() * (5 - 2 + 1) + 2);
+            setTimeout(() => {
+                resultado.innerHTML += `
+                    <p>D [Enviado de: 5] apareció en ${obtenerHora()}</p>
+                `;
+                }, segAleatorio * 1000);
+            
+            setTimeout(() => {
+                resultado.innerHTML += `
+                    <p>E [Enviado de: 6] apareció en ${obtenerHora()}</p>
+                `;
+                }, segAleatorio * 1000 + 2000);
+
+            setTimeout(() => {
+                resultado.innerHTML += `
+                    <p>G [Enviado de: 7] apareció en ${obtenerHora()}</p>
+                `;
+                }, segAleatorio * 1000 + 2000 + 2000);
+            
+            setTimeout(() => {
+                resultado.innerHTML += `
+                    <p>H [Enviado de: 7] apareció en ${obtenerHora()}</p>
+                `;
+                }, segAleatorio * 1000 + 2000 + 2000 + 3000);
+
+            
+
+        })
+
+        Promise.all([PromesaA, PromesaB, promesaD])
+            .then((values) => {
+                values;
+            })
+            .catch((error) => {
+                console.log("Ocurrio un error", error)
+            });
+
+        
+    </script>
+</body>
+</html>
