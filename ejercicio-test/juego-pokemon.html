@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego POKEMON</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        img {
+            width: 300px;
+        }
+        
+
+        thead, tbody {
+            text-align: center;
+        }
+        body{
+            display:flex;
+        }
+        button {
+            padding: 20px;
+        }
+        #botoncpu, #botoncpu:hover, #botoncpu:active {
+            background: transparent;
+            border:none
+        }
+
+    </style>
+</head>
+<body>
+
+    <main id="miPokemon">
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th><button onclick="miPokemon()">MI POKEMON</button></th>
+                </tr>
+            </thead>
+
+            <tbody class="tabla_body"></tbody>
+        </table>
+    </main>
+    <button onclick="pokeCPU()">FIGHT</button>
+    <main id="pokemonCPU">
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th><button id="botoncpu">CPU POKEMÓN</button></th>
+                </tr>
+            </thead>
+
+            <tbody class="tabla_body"></tbody>
+        </table>
+    </main>
+    
+    <script>
+        const principal = document.getElementById("miPokemon");
+        const secundaria = document.getElementById("pokemonCPU");
+        const cuerpoTabla = principal.querySelector(".tabla_body");
+        const cuerpoTabla2 = secundaria.querySelector(".tabla_body")
+
+        let pokemon = []
+        let pokemon2 = []
+
+        
+        //prueba
+        // UTILIZANDO ASYNC AWAIT
+        async function pokeApi(id) {
+            const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+
+            const respuesta = await fetch(url);
+
+            //si la respuesta no fue exitosa
+            if (!respuesta.ok)
+                throw new Error("Error. Pokemon no existe")
+
+            const json = await respuesta.json();
+            // retornar el link de la imagen del pokemon
+            
+            
+            //declaro los json
+            let img = json.sprites.other["official-artwork"].front_default;
+            let nombre = json.name
+            let cod = json.id
+            let hp = json.stats[0].base_stat
+            let attack = json.stats[1].base_stat
+            let defense = json.stats[2].base_stat
+            let speed = json.stats[5].base_stat
+            let experiencia = json.base_experience
+            
+            
+            
+            return [img, nombre, cod, hp, attack, defense, speed, experiencia];
+            
+        }
+        // pokeApi("1")
+        //     .then(nombre => console.log(nombre))
+        //     .catch(error => console.error(error.message));
+
+        //funcion que se ejecuta inmediatamente
+
+        async function miPokemon() {
+            const poke1 = Math.floor(Math.random() * (1000 - 0 + 1) + 0)
+            
+            try {
+                let listaPokemon = await pokeApi(`${poke1}`);
+                cuerpoTabla.innerHTML = `
+            <tr class="Pokemons">
+                <td><img src="${listaPokemon[0]}"</td>
+            </tr>
+            <tr class="Pokemons">
+                <td>ID: ${listaPokemon[2]}</td>
+            </tr>
+            <tr class="Pokemons">    
+                <td>Name: ${listaPokemon[1]}</td>
+            </tr>
+                <tr class="Pokemons">    
+                <td>Hp: ${listaPokemon[3]}</td>
+            </tr>
+            </tr>
+                <tr class="Pokemons">    
+                <td>Attack: ${listaPokemon[4]}</td>
+            </tr>
+            </tr>
+                <tr class="Pokemons">    
+                <td>Defense: ${listaPokemon[5]}</td>
+            </tr>
+            </tr>
+                <tr class="Pokemons">    
+                <td>Speed: ${listaPokemon[6]}</td>
+            </tr>`
+            pokemon = [listaPokemon[0],listaPokemon[1],listaPokemon[2],listaPokemon[3],listaPokemon[4],listaPokemon[5],listaPokemon[6],listaPokemon[7]]
+
+            } catch (error) {
+                console.error(error.message);
+            
+            }
+            
+        }
+        miPokemon()
+
+
+        async function test() {
+            const poke2 = Math.floor(Math.random() * (1000 - 0 + 1) + 0)
+
+            return new Promise((resolve,reject)=> {
+                pokeApi(`${poke2}`)
+                    .then((e) => {
+                        cuerpoTabla2.innerHTML = `
+                            <tr class="Pokemons">
+                                <td><img src="${listaPokemon2[0]}"</td>
+                            </tr>
+                            <tr class="Pokemons">
+                                <td>ID: ${listaPokemon2[2]}</td>
+                            </tr>
+                            <tr class="Pokemons">    
+                                <td>Name: ${listaPokemon2[1]}</td>
+                            </tr>
+                                <tr class="Pokemons">    
+                                <td>Hp: ${listaPokemon2[3]}</td>
+                            </tr>
+                            </tr>
+                                <tr class="Pokemons">    
+                                <td>Attack: ${listaPokemon2[4]}</td>
+                            </tr>
+                            </tr>
+                                <tr class="Pokemons">    
+                                <td>Defense: ${listaPokemon2[5]}</td>
+                            </tr>
+                            </tr>
+                                <tr class="Pokemons">    
+                                <td>Speed: ${listaPokemon2[6]}</td>
+                            </tr>`
+
+                        pokemon2 = [listaPokemon2[0],listaPokemon2[1],listaPokemon2[2],listaPokemon2[3],listaPokemon2[4],listaPokemon2[5],listaPokemon2[6],listaPokemon2[7]]
+                    })
+
+                    .catch((error)=> {
+                        console.error(error.message)
+                    })
+                
+            }) 
+        }
+
+        async function pokeCPU() {
+            const poke2 = Math.floor(Math.random() * (1000 - 0 + 1) + 0)
+            
+            try {
+                let listaPokemon2 = await pokeApi(`${poke2}`);
+                cuerpoTabla2.innerHTML = `
+            <tr class="Pokemons">
+                <td><img src="${listaPokemon2[0]}"</td>
+            </tr>
+            <tr class="Pokemons">
+                <td>ID: ${listaPokemon2[2]}</td>
+            </tr>
+            <tr class="Pokemons">    
+                <td>Name: ${listaPokemon2[1]}</td>
+            </tr>
+                <tr class="Pokemons">    
+                <td>Hp: ${listaPokemon2[3]}</td>
+            </tr>
+            </tr>
+                <tr class="Pokemons">    
+                <td>Attack: ${listaPokemon2[4]}</td>
+            </tr>
+            </tr>
+                <tr class="Pokemons">    
+                <td>Defense: ${listaPokemon2[5]}</td>
+            </tr>
+            </tr>
+                <tr class="Pokemons">    
+                <td>Speed: ${listaPokemon2[6]}</td>
+            </tr>`
+
+            pokemon2 = [listaPokemon2[0],listaPokemon2[1],listaPokemon2[2],listaPokemon2[3],listaPokemon2[4],listaPokemon2[5],listaPokemon2[6],listaPokemon2[7]]
+
+            } catch (error) {
+                console.error(error.message);
+            
+            }
+            
+        }
+        pokeCPU()
+
+        //calculos de juego
+
+        let var_turno = 0;
+        console.log(pokemon[6]);
+
+        let vel1 = Number(pokemon[6])
+        let vel2 = Number(pokemon2[6])
+        if (vel1 >= vel2) {
+        var_turno = vel1 - vel2
+        } else if (vel2 > vel1) { var_turno = vel2 - vel1
+        }
+        console.log(var_turno)
+
+        // golpear
+
+
+    </script>
+</body>
+</html>
