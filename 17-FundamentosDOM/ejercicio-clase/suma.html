@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de suma</title>
+</head>
+<body>
+
+    <div>
+        <label for="">Número 1:</label>
+        <input id="numero1" type="number">
+        <br>
+        <label for="">Número 2:</label>
+        <input id="numero2" type="number">
+        <button onclick="sumar()" id="btnSumar">+</button>
+        <hr>
+        <label for="">Resultado:</label>
+        <input id="resultado" type="text" readonly="">
+    </div>
+    
+    
+
+    <script>
+        function sumar() {
+            let num_1 = document.getElementById('numero1').value;
+            let num_2 = document.getElementById('numero2').value;
+            
+            if(num_1 == '') {
+                num_1 = 0;
+            }
+            if(num_2 == '') {
+                num_2 = 0;
+            }
+
+            let suma = Number(num_1) + Number(num_2);
+
+            document.getElementById("resultado").value = suma;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks</title>
+</head>
+<body>
+    <script>
+        // Función Manejador de peticiones
+        function requestHandler(req, res) {
+            // Imagina usar mongo
+            User.findByID(req.userId, function(err, user) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    Task.findByID(user.tasksId, function(err, tasks) {
+                        if (err) {
+                            return res.send(err);
+                        } else {
+                            tasks.completed = true;
+                            tasks.save(function (err) {
+                                if (err) {
+                                    return res.send(err);
+                                } else {
+                                    res.send('Task Completed')
+                                }
+                            })
+                        }
+                    })
+                }
+            }) 
+
+            // whatever code
+
+        }
+    </script>
+</body>
+</html>
