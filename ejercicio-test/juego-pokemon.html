@@ -44,7 +44,7 @@
             <tbody class="tabla_body"></tbody>
         </table>
     </main>
-    <button onclick="pokeCPU()">FIGHT</button>
+    <button onclick="fight()">FIGHT</button>
     <main id="pokemonCPU">
         <table class="tabla">
             <thead>
@@ -65,6 +65,8 @@
 
         let pokemon = []
         let pokemon2 = []
+
+        
 
         
         //prueba
@@ -187,6 +189,7 @@
         }
 
         async function pokeCPU() {
+            
             const poke2 = Math.floor(Math.random() * (1000 - 0 + 1) + 0)
             
             try {
@@ -217,7 +220,8 @@
                 <td>Speed: ${listaPokemon2[6]}</td>
             </tr>`
 
-            pokemon2 = [listaPokemon2[0],listaPokemon2[1],listaPokemon2[2],listaPokemon2[3],listaPokemon2[4],listaPokemon2[5],listaPokemon2[6],listaPokemon2[7]]
+
+            return new Map([["img", listaPokemon2[0]], ["nombre",listaPokemon2[1]], ["cod",listaPokemon2[2]], ["hp",listaPokemon2[3]], ["attack",listaPokemon2[4]], ["defense",listaPokemon2[5]], ["speed",listaPokemon2[6]], ["experiencia",listaPokemon2[7]]]);
 
             } catch (error) {
                 console.error(error.message);
@@ -225,20 +229,13 @@
             }
             
         }
-        pokeCPU()
 
         //calculos de juego
-
-        let var_turno = 0;
-        console.log(pokemon[6]);
-
-        let vel1 = Number(pokemon[6])
-        let vel2 = Number(pokemon2[6])
-        if (vel1 >= vel2) {
-        var_turno = vel1 - vel2
-        } else if (vel2 > vel1) { var_turno = vel2 - vel1
+        async function fight() {
+            let pokemonCPU = await pokeCPU()
+            console.log(pokemonCPU)
         }
-        console.log(var_turno)
+        
 
         // golpear
 

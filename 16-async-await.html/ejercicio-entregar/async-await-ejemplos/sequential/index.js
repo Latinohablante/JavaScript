@@ -1,4 +1,4 @@
-const { taskOne, taskTwo } = './tasks';
+const { taskOne, taskTwo } = require('./tasks');
 
         async function main() {
             console.time('Measuring time')
