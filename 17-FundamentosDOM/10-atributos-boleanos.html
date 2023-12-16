@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributos Booleanos</title>
+</head>
+
+<body>
+    <button id="miBoton" disabled>Botón Deshabilitado</button>
+
+    <script>
+        // Seleccionar el botón
+        const miBoton = document.getElementById('miBoton');
+
+        // Verificar si el botón está deshabilitado
+        console.log('¿Botón deshabilitado?', miBoton.disabled); // Debería imprimir: true
+
+        // Habilitar el botón (eliminar el atributo 'disabled')
+        miBoton.removeAttribute('disabled');
+
+        // Verificar nuevamente el estado del botón
+        console.log('¿Botón deshabilitado?', miBoton.disabled); // Debería imprimir: false
+    </script>
+</body>
+
+</html>

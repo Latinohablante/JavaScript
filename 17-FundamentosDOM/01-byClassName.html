@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo get elementsByClassName</title>
+</head>
+<body>
+    <div class="miClase">Elemento 1</div>
+    <div class="miClase">Elemento 2</div>
+    <div class="miClase">Elemento 3</div>
+    <script>
+        // Utilizando getElementsByClassName para seleccionados
+        var elementos = document.getElementsByClassName('miClase')
+
+
+
+        console.table(elementos)
+        // Iterando sobre los elementos seleccionados
+        for (var i = 0; i < elementos.length ; i++) {
+            // Haciendo algo con cada elemento, por ejemplo, 
+            elementos[i].innerHTML = 'Nuevo contenido para' + (i + 1);
+        }
+    </script>
+</body>
+</html>

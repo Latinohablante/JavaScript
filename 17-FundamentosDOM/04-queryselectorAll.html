@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo querySelectorAll</title>
+    <style>
+        .resaltado {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="resaltado">Este es el primer párrafo.</p>
+    <p class="resaltado">Este es el segundo párrafo.</p>
+    <p>Este es el tercer párrafo.</p>
+
+    <button onclick="cambiar()">aumentar</button>
+    <button onclick="cambiar()">disminuir</button>
+
+    <script>
+
+        function cambiar() {
+            // Utilizando querySelectorAll para seleccionar todos los párrafos con la clase "resaltado"
+            const parrafosResaltados = document.querySelectorAll('.resaltado');
+
+            // Iterando sobre los elementos seleccionados y haciendo algo con cada uno
+            let fsize = 18;
+            parrafosResaltados.forEach(parrafo => {
+                parrafo.style.fontSize = `${fsize}px`;
+                fsize += 7;
+            });
+        }
+
+        function disminuir() {
+            // Utilizando querySelectorAll para seleccionar todos los párrafos con la clase "resaltado"
+            const parrafosResaltados = document.querySelectorAll('.resaltado');
+
+            // Iterando sobre los elementos seleccionados y haciendo algo con cada uno
+            let fsize = 18;
+            parrafosResaltados.forEach(parrafo => {
+                parrafo.style.fontSize = `${fsize}px`;
+                fsize -= 7;
+            });
+        }
+
+    </script>
+</body>
+
+</html>

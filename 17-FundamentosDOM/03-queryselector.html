@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo querySelector</title>
+    <style>
+        .resaltado {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="parrafo1" class="resaltado">Este es el primer párrafo.</p>
+    <p id="parrafo2">Este es el segundo párrafo.</p>
+
+    <button onclick="cambiar()">Cambiar</button>
+    <button onclick="regresar()">Regresar</button>
+
+    <script>
+        function cambiar() {
+            // Utilizando querySelector para seleccionar el primer párrafo con la clase "resaltado"
+            const parrafoResaltado = document.querySelector('.resaltado');
+
+            // Haciendo algo con el elemento seleccionado, por ejemplo, cambiar su estilo
+            parrafoResaltado.style.fontSize = '30px';
+            parrafoResaltado.style.color = 'purple';
+
+            // También podemos seleccionar por ID
+            const segundoParrafo = document.querySelector('#parrafo2');
+            segundoParrafo.innerHTML = 'Texto modificado para el segundo párrafo.';
+        }
+
+        function regresar() {
+            // Utilizando querySelector para seleccionar el primer párrafo con la clase "resaltado"
+            const parrafoResaltado = document.querySelector('.resaltado');
+
+            // Haciendo algo con el elemento seleccionado, por ejemplo, cambiar su estilo
+            parrafoResaltado.style.fontSize = '10px';
+            parrafoResaltado.style.color = 'red';
+
+            // También podemos seleccionar por ID
+            const segundoParrafo = document.querySelector('#parrafo2');
+            segundoParrafo.innerHTML = 'Texto modificado para el segundo párrafo.';
+        }
+
+    </script>
+</body>
+
+</html>

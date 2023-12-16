@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo setAttribute</title>
+</head>
+<body>
+    <a id="miEnlace" href="https://www.eltiempo.com" target="_blank">Enlace de ejemplo</a>
+    <button onclick="cambiar()">cambiar link</button>
+    <button onclick="regresar()">regresar link</button>
+    <script>
+
+        function cambiar() {
+        // Seleccionar el elemento
+        const enlace = document.getElementById('miEnlace')
+
+        // Obtener el valor del atributo 'href'
+        enlace.setAttribute('href', 'https://www.google.com');
+        console.log('URL:', url);
+        }
+
+        function regresar() {
+        // Seleccionar el elemento
+        const enlace = document.getElementById('miEnlace')
+
+        // Obtener el valor del atributo 'href'
+        enlace.setAttribute('href', 'https://www.eltiempo.com');
+        console.log('URL:', url);
+        }
+
+    </script>
+</body>
+</html>
