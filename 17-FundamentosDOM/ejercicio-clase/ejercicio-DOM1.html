@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convertir de centigrados a Fahrenheit</title>
+    <title>Convertir de centigrados a Fahrenheit y viceversa</title>
     <style>
         * {
             padding: 0;
@@ -38,8 +38,7 @@
         <input id="numero2" type="number">
         <br>
         <button onclick="convCentAFahre()" id="btnSumar">Convertir a Fahrenheit</button>
-        <button onclick="convFahreACent()" id="btnSumar">Convertir a Centigrados</button>
-        
+        <button onclick="convFahreACent()" id="btnSumar">Convertir a Centigrados</button> 
     </div>
     
     
@@ -48,6 +47,7 @@
 
         function convCentAFahre() {
             let centigrados = document.getElementById('numero1').value;
+            
             let fahrenheit = ( centigrados * 9 / 5 ) + 32
 
             document.getElementById("numero2").value = fahrenheit;
