@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir de centigrados a Fahrenheit</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+            box-sizing: border-box;
+            color: black;
+            
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            border: 2px solid;
+            padding: 20px;
+            background-color: lightslategray;
+        }
+        button {
+            padding: 5px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <label for="">Grados centígrados:</label>
+        <input id="numero1" type="number">
+        <br>
+        <label for="">Grados fahrenheit:</label>
+        <input id="numero2" type="number">
+        <br>
+        <button onclick="convCentAFahre()" id="btnSumar">Convertir a Fahrenheit</button>
+        <button onclick="convFahreACent()" id="btnSumar">Convertir a Centigrados</button>
+        
+    </div>
+    
+    
+
+    <script>
+
+        function convCentAFahre() {
+            let centigrados = document.getElementById('numero1').value;
+            let fahrenheit = ( centigrados * 9 / 5 ) + 32
+
+            document.getElementById("numero2").value = fahrenheit;
+        }
+
+        function convFahreACent() {
+            let fahrenheit = document.getElementById('numero2').value;
+            let centigrados = (fahrenheit * 5 / 9 ) - (32 * 5 / 9)
+
+            document.getElementById("numero1").value = Number(centigrados.toFixed(2));
+        }
+
+    </script>
+</body>
+</html>
