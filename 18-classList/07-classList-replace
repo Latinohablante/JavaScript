@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar nueva class</title>
+</head>
+<body>
+    <div id="miElemento" class="clase1 clase2">Contenido del Elemento</div>
+
+    <button onclick="contarClases()">Cantidad de clases</button>
+    <br>
+    <button onclick="agregarClase()">Agregar Clase</button>
+    <br>
+    <button onclick="classNPos()">clase en la 1ra posición</button>
+    <br>
+    <button onclick="existeClase()">Validar si existe una clase</button>
+    <br>
+    <button onclick="removerClase()">Remover clase</button>
+    <br>
+    <button onclick="alternarClase()">Alternar la presencia de una clase</button>
+    <br>
+    <button onclick="reemplazarClase()">Reemplazar clase</button>
+    <script>
+        const agregarClase = () => {
+            const elemento = document.getElementById('miElemento');
+            elemento.classList.add('nuevaClase');
+        }
+
+        const contarClases = () => {
+            const elemento = document.getElementById('miElemento');
+
+            const cant = elemento.classList.length;
+            alert("Cantidad de clases: " + cant.toString())
+        }
+
+        const classNPos = () => {
+            const elemento = document.getElementById('miElemento');
+
+
+            //si pido una posición que no existe regresa null
+            const claseEnPosicion1 = elemento.classList.item(1);
+            alert('Clase en la posición 1:' + claseEnPosicion1);
+        }
+
+        const existeClase = () => {
+            const elemento = document.getElementById('miElemento');
+
+            const existeClase = elemento.classList.contains("nuevaClase");
+            alert('Existe la clase :' + existeClase);
+        }
+
+        const removerClase = () => {
+            const elemento = document.getElementById('miElemento');
+
+            const rta = elemento.classList.remove('clase2', 'nuevaClase');
+            alert('respuesta de eliminar ' + rta)
+        }
+
+
+        // analiza si existe una clase y regresa true si no existe o false si existe y lo elimina
+        const alternarClase = () => {
+            const elemento = document.getElementById('miElemento');
+
+            const rta = elemento.classList.toggle('nuevaClase');
+            alert('respuesta de alternar clase ' + rta)
+        }
+
+        const reemplazarClase = () => {
+            const elemento = document.getElementById('miElemento');
+
+            //classList.replace(old, new)
+            const rta = elemento.classList.replace('nuevaClase','claseReemplazo');
+            alert('respuesta de reemplazar clase ' + rta);
+        }
+    </script>
+</body>
+</html>
