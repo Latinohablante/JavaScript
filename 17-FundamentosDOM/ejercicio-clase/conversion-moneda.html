@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir de centigrados a Fahrenheit y viceversa</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+            box-sizing: border-box;
+            color: black;
+            
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            border: 2px solid;
+            padding: 20px;
+            background-color: lightslategray;
+        }
+        button {
+            padding: 5px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <label for="">EUROS:</label>
+        <input id="inpEuro" type="number">
+        <br>
+        <label for="">DÓLARES:</label>
+        <input id="inpDolar" type="number">
+        <br>
+        <label for="">DÓLAR CANADIENCE:</label>
+        <input id="inpDolCan" type="number">
+        <br>
+        <label for="">PESO MEXICANO:</label>
+        <input id="inpPesMex" type="number">
+        <br>
+        <label for="">PESO COLOMBIANO:</label>
+        <input id="inpPesCol" type="number">
+        <br>
+        <button onclick="conversion()" id="btnSumar">Convertir monedas</button>
+    </div>
+    
+    
+
+    <script>
+
+        // UTILIZANDO ASYNC AWAIT
+        async function converMonedas() {
+            const url = `https://cdn.dinero.today/api/latest.json`;
+
+            const respuesta = await fetch(url);
+
+            //si la respuesta no fue exitosa
+            if (!respuesta.ok)
+                throw new Error("Error. No se pudo hacer la conversión")
+
+            const json = await respuesta.json();
+            // retornar el valor de euros
+            let eur = json.rates.EUR;
+            let cad = json.rates.CAD;
+            let mxn = json.rates.MXN;
+            let cop = json.rates.COP;
+
+            return [eur, cad, mxn, cop];
+        }
+
+        async function conversion() {
+            try {
+                let listaMonedas = await converMonedas();
+                let euro = listaMonedas[0]
+                let cad = listaMonedas[1]
+                let mxn = listaMonedas[2]
+                let cop = listaMonedas[3]
+
+                let euroValor = document.getElementById('inpEuro').value;
+                
+                let dolar = 1
+
+                resultadoDol = euroValor / euro
+                resultadoCAD = euroValor * cad / euro
+                resultadoMXN = euroValor * mxn / euro
+                resultadoCOP = euroValor * cop / euro
+
+                document.getElementById("inpDolar").value = Number(resultadoDol.toFixed(2));
+                document.getElementById("inpDolCan").value = Number(resultadoCAD.toFixed(2));
+                document.getElementById("inpPesMex").value = Number(resultadoMXN.toFixed(2));
+                document.getElementById("inpPesCol").value = Number(resultadoCOP.toFixed(2));
+
+            } catch (error) {
+                console.error(error.message);
+            }
+            }
+        
+
+    </script>
+</body>
+</html>
