@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <title>Ejercicio 11 - DOM básico</title>
-    <script type="a34c3a150b4ac2f20005bcfb-text/javascript">
+    <!-- <script type="a34c3a150b4ac2f20005bcfb-text/javascript">
       window.onload = function() {
       	// Numero de enlaces de la pagina
 
@@ -14,9 +14,9 @@
       	// Numero de enlaces del tercer párrafo
 
       }
-    </script>
+    </script> -->
   </head>
-  <body>
+  <body id="datos">
     <p>
       Lorem ipsum dolor sit amet,
       <a href="http://prueba">consectetuer adipiscing elit</a>. Sed mattis enim
@@ -62,7 +62,51 @@
       at odio.
       <a href="http://prueba5">Sed non lectus non est pellentesque</a> auctor.
     </p>
-    <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="a34c3a150b4ac2f20005bcfb-|49" defer>
+    <script>
+		
+
+		// Una forma de obtener los links
+		function contarEnlaces() {
+			let numero = document.getElementsByTagName('a').length;
+			let penLink = document.querySelectorAll('a')
+			alert(`Hay ${numero} enlaces`)
+		}
+		contarEnlaces()
+
+		// otra forma
+
+		window.onload = function() {
+			const body = document.querySelector("body");
+			const links = body.querySelectorAll("a");
+			const parrafos = document.querySelectorAll("p");
+
+			// Número de enlaces de la página
+			let numLinks = links.length;
+			console.log(numLinks);
+
+			//Direccion del penúltimo enlace
+			let penultimo = links[links.length-2].href;
+			console.log(penultimo)
+
+			// Numero de enlaces que apuntan a http://prueba
+
+			let numEnlacesAPrueba = 0;
+			links.forEach((link) => {
+				if (link.href === "http://prueba/") {
+					numEnlacesAPrueba++;
+				}
+			});
+			console.log(numEnlacesAPrueba)
+
+			//Numero enlaces al tercer parrafo
+			const tercerParrafo = parrafos[2];
+			const numLinkParrafo3 = tercerParrafo.querySelectorAll("a").length;
+			console.log(numLinkParrafo3)
+
+
+
+
+		}
 		
 	</script>
   </body>
