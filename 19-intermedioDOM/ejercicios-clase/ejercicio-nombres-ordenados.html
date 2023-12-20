@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ordenar nombres</title>
+    <style>
+        textarea {
+          height: 400px;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,31 +19,34 @@
     <br>
     <br>
     <button id="change-message" onclick="obtenerNombre()">Agregar y ordenar nombre</button>
+    
     <br>
     <br>
-    <p id="nombres-ordenados">0</p>
+    <textarea id="nombres-ordenados" cllas="cajas-texto"></textarea>
+    <br>
+    <br>
+    <button onclick="eliminarLista()">Limpiar lista</button>
     <script>
-        let lista = []
-        
-        function agregarElement() {
-            const element = document.querySelector(".container");
-            const div = document.createElement("div");
-            div.innerHTML = "<p onclick='alert(\"Codigo malicioso :( att cacas\")'><span class='textoRojo' style='color:red'>DIV con Nuevo elemento</span><br><br></p>";
-            element.appendChild(div);
-        }
+        let lista = [];
 
         function obtenerNombre() {
             const nombre = document.getElementById("nombre").value;
             const ordenados = document.getElementById("nombres-ordenados").value;
             lista[lista.length] = nombre;
             lista.sort();
+            let str = '';
+            for (const item of lista) {
 
-            ordenados.innerHTML = nombre
+                str = str + `${item}` + `\n`;
+                document.getElementById("nombres-ordenados").value = str;
+            } 
         }
 
-
-
-
+        function eliminarLista() {
+            lista = [];
+            document.getElementById("nombres-ordenados").value = lista;
+            document.getElementById("nombre").value = '';
+        }
 
     </script>
 </body>
