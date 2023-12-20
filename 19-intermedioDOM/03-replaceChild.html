@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>appendChild</title>
+    <style>
+        .textoRojo {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="parent">
+            <p>Hola a todos</p>
+            <p class="message">Hola, soy todo un camper</p>
+        </div>
+    </div>
+
+    <input type="text" id="new-message">
+    <br>
+    <button id="change-message" onclick="agregarElement()">Agregar Div</button>
+    <br>
+    <button id="change-message" onclick="eliminarElement()">Eliminar Div</button>
+    <br>
+    <button id="change-message" onclick="reemplazarElement()">Reemplazar Div</button>
+    <br>
+
+    <script>
+        function agregarElement() {
+            const element = document.querySelector(".container");
+            const div = document.createElement("div");
+            div.innerHTML = "<p onclick='alert(\"Codigo malicioso :( att cacas\")'><span class='textoRojo' style='color:red'>DIV con Nuevo elemento</span><br><br></p>";
+            element.appendChild(div);
+        }
+
+        function eliminarElement() {
+            const element = document.querySelector(".parent");
+            const parrafo = document.querySelector(".message");
+            alert(parrafo.outerHTML);
+
+            element.removeChild(parrafo);
+            
+        }
+
+        function reemplazarElement() {
+            const element = document.querySelector(".parent");
+            // anterior
+            const parrafo = document.querySelector(".message");
+
+            //nuevo
+            const pNuevo = document.createElement("p");
+            pNuevo.innerHTML = "<span style='color:tomato'>Nuevo parrafo</span><br><br>";
+
+            //reemplazar
+            element.replaceChild(pNuevo,parrafo);
+
+            element.removeChild(parrafo);
+            
+        }
+    </script>
+</body>
+</html>

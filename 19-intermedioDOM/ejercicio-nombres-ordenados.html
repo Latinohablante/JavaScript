@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenar nombres</title>
+</head>
+<body>
+
+    <h1>Ordenar nombres</h1>
+    <hr>
+    <p>Ingrese nombres en la el área de texto para ordenarlos en el contenedor</p>
+    <input type="text" id="nombre">
+    <br>
+    <br>
+    <button id="change-message" onclick="obtenerNombre()">Agregar y ordenar nombre</button>
+    <br>
+    <br>
+    <p id="nombres-ordenados">0</p>
+    <script>
+        let lista = []
+        
+        function agregarElement() {
+            const element = document.querySelector(".container");
+            const div = document.createElement("div");
+            div.innerHTML = "<p onclick='alert(\"Codigo malicioso :( att cacas\")'><span class='textoRojo' style='color:red'>DIV con Nuevo elemento</span><br><br></p>";
+            element.appendChild(div);
+        }
+
+        function obtenerNombre() {
+            const nombre = document.getElementById("nombre").value;
+            const ordenados = document.getElementById("nombres-ordenados").value;
+            lista[lista.length] = nombre;
+            lista.sort();
+
+            ordenados.innerHTML = nombre
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

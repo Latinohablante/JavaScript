@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class list New message</title>
+</head>
+<body>
+    <div class="container">
+        <div class="parent">
+            <p>Hola a todos</p>
+            <p class="message">Hola, soy todo un camper</p>
+        </div>
+    </div>
+
+    <input type="text" id="new-message">
+    <br>
+    <button id="change-message" onclick="cambiarMensaje()">Outer mensaje individual</button>
+    <br>
+    <button onclick="outerDiv()">Outer Div</button>
+
+    <script>
+        function cambiarMensaje() {
+            const element = document.querySelector(".message");
+            alert(element.outerHTML); // "p"
+        }
+
+        // selecciona el elemento seleccionado y sus hijos junto con su contenido
+        function outerDiv() {
+            const element = document.querySelector(".container");
+            alert(element.outerHTML);
+        }
+    </script>
+</body>
+</html>
