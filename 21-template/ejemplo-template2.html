@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+</head>
+<body>
+
+    
+
+    <ul class="lista-dinamica"></ul>
+
+    <button onclick="agregarItems()">Agregar elementos a la lista</button>
+
+    <template>
+        <li class="list">
+            <b>Nombre: </b><span class="text-danger">Info items...</span>
+        </li>
+    </template>
+    
+    
+    
+</body>
+    <script>
+        function agregarItems() {
+                const lista = document.getElementById("lista-dinamica");
+                const items = ["item 1", "item 2", "item 3"];
+
+                const frag = document.createDocumentFragment();
+                const tmpl = document.querySelector("template").content;
+
+                items.forEach(item => {
+                    tmpl.querySelector("span").textContent = item;
+
+                    const clone = tmpl.cloneNode(true);
+                    frag.appendChild(clone);
+                });
+
+                lista.appendChild(frag);
+                // Este código no está funcionando, REVISARLO
+        }
+    </script>
+</html>

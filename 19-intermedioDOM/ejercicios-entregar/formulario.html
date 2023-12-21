@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <label for="">Nombre del cliente</label><br>
+    <input id="nombre" type="text">
+    <br><br>
+    
+    <label for="material-choice">Material de la caja:</label>
+    <br>
+    <input list="material" id="choice-material" name="choice-material" />
+
+    <datalist id="material">
+      <option value="Plastico"></option>
+      <option value="Carton"></option>
+      <option value="Sobre"></option>
+      <option value="Icopor"></option>
+      <option value="Metal"></option>
+    </datalist>
+
+    <br><br><br>
+
+    <label for="">Seleccione unas dimensiones para la caja</label>
+    <br>
+    <input type="radio" name="rBtn" class="radiusBtn" id="diminutas" value="diminutas">
+    <label for="diminutas">Diminutas</label>
+    <br>
+    <input type="radio" name="rBtn" class="radiusBtn" id="medianas" value="medianas" checked>
+    <label for="medianas">Medianas</label>
+    <br>
+    <input type="radio" name="rBtn" class="radiusBtn" id="grandes" value="grandes">
+    <label for="grandes">Grandes</label>
+    <br><br>
+    <label for="comentarios">Escriba sus comentarios:</label><br>
+    <textarea name="comentarios" id="comentario" cols="30" rows="10"></textarea><br>
+    <input type="submit" value="Enviar" onclick="tomarNombre()">
+    <br>
+    </div>
+    <p id="texto"></p>
+    <script>
+        function tomarNombre() {
+            const nombre = document.getElementById("nombre").value;
+            const material = document.getElementById("choice-material").value
+            const size = document.querySelector('.radiusBtn:checked').value;
+            const comentario = document.getElementById("comentario").value;
+
+            const div = document.querySelector("div");
+
+            const p = document.createElement("p");
+
+            p.innerHTML = `<span style='color:blue;'>${nombre} ha pedido una caja de ${material} con unas dimensiones ${size}. ${comentario} </span>`;
+
+            //inserte la p antes de que inicie el div
+            div.insertAdjacentElement("afterend", p);
+
+
+
+        }
+
+    </script>
+</body>
+</html>

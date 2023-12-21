@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove</title>
+    <style>
+        .textoRojo {
+            color: red;
+        }
+        .container {
+            border: solid 1px red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="parent">
+            <p>Hola a todos</p>
+            <p class="message">Hola, soy todo un camper</p>
+        </div>
+    </div>
+
+    <input type="text" id="new-message">
+    <br>
+    <button id="change-message" onclick="insertarElement()">Insertar Parrafo</button>
+    <br>
+    <button id="change-message" onclick="afterElement()">After Parrafo</button>
+    <br>
+    <button id="change-message" onclick="prependElement()">Prepend Parrafo</button>
+    <br>
+    <button id="change-message" onclick="appendElement()">Append Parrafo</button>
+    <br>
+    <button id="change-message" onclick="replaceChildrenElement()">replaceChildren Parrafo</button>
+    <br>
+    <button id="change-message" onclick="replaceWithElement()">replaceWith Parrafo</button>
+    <br>
+    <button id="change-message" onclick="removeElement()">remove Parrafo</button>    
+    <script>
+        function insertarElement() {
+            const div = document.querySelector("div");
+            const p = document.createElement("p");
+            p.innerHTML = "<span style='color:red;'>Este es el contenido insertado </span>";
+            div.before(p);
+        }
+
+
+        // ingresa el nuevo elemento después del contenido seleccionado
+        function afterElement() {
+            const div = document.querySelector("div");
+            const p = document.createElement("p");
+            p.innerHTML = "<span style='color:red;'>Este es el contenido insertado </span>";
+            div.after(p);
+        }
+
+        // ingresa el nuevo elemento dentro del contenido seleccionado, al inicio
+        function prependElement() {
+            const div = document.querySelector("div");
+            const p = document.createElement("p");
+            p.innerHTML = "<span style='color:blue;'>Este es el contenido insertado </span>";
+            div.prepend(p);
+        }
+
+        // ingresa el nuevo elemento después del contenido seleccionado
+        function appendElement() {
+            const div = document.querySelector("div");
+            const p = document.createElement("p");
+            p.innerHTML = "<span style='color:blue;'>Este es el contenido insertado </span>";
+            div.append(p);
+        }
+
+        // Reemplaza todos los elementos hijos por el nuevo
+        function replaceChildrenElement() {
+            const div = document.querySelector("div");
+            const p = document.createElement("p");
+            p.innerHTML = "<span style='color:blue;'>Este es el contenido insertado </span>";
+            div.replaceChildren(p);
+        }
+
+        // Reemplaza todo el contenido por la nueva etiqueta
+        function replaceWithElement() {
+            const div = document.querySelector("div");
+            const p = document.createElement("p");
+            p.innerHTML = "<span style='color:blue;'>Este es el contenido insertado </span>";
+            div.replaceWith(p);
+        }
+
+        // Remueve el elemento
+        function removeElement() {
+            const div = document.querySelector("div");
+            div.remove();
+        }
+        
+    </script>
+</body>
+</html>

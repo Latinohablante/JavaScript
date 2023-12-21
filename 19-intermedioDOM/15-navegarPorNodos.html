@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove</title>
+    <style>
+        .textoRojo {
+            color: red;
+        }
+        .container {
+            border: solid 1px red;
+        }
+    </style>
+</head>
+<body>
+    <h1>API de inserción</h1>
+    <div class="container" style="border: 2px solid red">
+        <div class="parent" style="border: 2px solid green; margin:5px; padding:5px">Text del div parent
+            <p>Hola a todos</p>
+            <p class="message">Hola, soy todo un camper</p>
+        </div>
+    </div>
+
+    <input type="text" id="new-message">
+    <br>
+    <button id="change-message" onclick="nav_children()">Children</button>    
+    <br>
+    
+    
+    <script>
+
+        function nav_children() {
+                    const div = document.querySelector(".parent");
+        
+                    //Cantidad de hijos
+                    console.log(div.childNodes.length);
+
+                    //Nodos
+                    console.log(div.childNodes);
+
+                    //nodo padre
+                    console.log("nodo padre:");
+                    console.log(div.parentNode);
+                }
+
+
+        
+    </script>
+</body>
+</html>

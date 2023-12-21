@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Before</title>
+    <style>
+        .textoRojo {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="parent">
+            <p>Hola a todos</p>
+            <p class="message">Hola, soy todo un camper</p>
+        </div>
+    </div>
+
+    <input type="text" id="new-message">
+    <br>
+    <button id="change-message" onclick="insertarElement()">Insertar Parrafo</button>
+    <br>
+    <button id="change-message" onclick="afterElement()">After Parrafo</button>
+
+    <script>
+        function insertarElement() {
+            const div = document.querySelector("div");
+            const p = document.createElement("p");
+            p.innerHTML = "<span style='color:red;'>Este es el contenido insertado </span>";
+            div.before(p);
+        }
+
+
+        // ingresa el nuevo elemento después del contenido seleccionado
+        function afterElement() {
+            const div = document.querySelector("div");
+            const p = document.createElement("p");
+            p.innerHTML = "<span style='color:red;'>Este es el contenido insertado </span>";
+            div.after(p);
+        }
+    </script>
+</body>
+</html>
