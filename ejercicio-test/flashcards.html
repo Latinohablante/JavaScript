@@ -13,9 +13,16 @@
         }
         ul {
             background-color: none;
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         li {
             list-style: none;
+            width: 48%;
+            user-select: none;
         }
         .caja {
             background-color: lightblue;
@@ -25,6 +32,9 @@
             margin: 5px;
             list-style: none;
 
+        }
+        .ver {
+            display: none;
         }
     </style>
 </head>
@@ -65,34 +75,21 @@
             contador++
             const li = document.createElement(`li`);
             
+            
             li.innerHTML = `<div class="caja" id="caja${contador}">
                             <button onclick="caja${contador}.remove()">Trash</button>
                             <hr>
                             <h3>${pregunta}</h3>
-                            <h3>${respuesta}</h3>
+                            <h3 id="visible${contador}">${respuesta}</h3>
                             </div>`;
                 if (pregunta != '' && respuesta != '') {
                     element.appendChild(li);
+                    const visible = document.getElementById(`visible${contador}`)
+                    li.addEventListener("click",(e) => visible.classList.toggle("ver"))
                 } else {
                     alert("No hay ningún texto")
                 }
             
-        }
-
-        function addTemplate() {
-            const miTemplate = document.getElementById("miTemplate");
-            const clon = miTemplate.content.cloneNode(true);
-            document.body.appendChild(clon);
-            const ancla = document.getElementById("ancla");
-            ancla.replaceWith(clon)
-
-        }
-
-        function replaceWithElement() {
-            const div = document.querySelector("div");
-            const p = document.createElement("p");
-            p.innerHTML = "<span style='color:blue;'>Este es el contenido insertado </span>";
-            div.replaceWith(p);
         }
 
         // Quita la card
