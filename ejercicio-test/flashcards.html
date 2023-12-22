@@ -11,12 +11,27 @@
             text-align: center;
             visibility:visible;
         }
+        ul {
+            background-color: none;
+        }
+        li {
+            list-style: none;
+        }
+        .caja {
+            background-color: lightblue;
+            border-radius: 5px;
+            text-align: center;
+            padding: 5px;
+            margin: 5px;
+            list-style: none;
+
+        }
     </style>
 </head>
 <body>
     <h1>Gestión de Tarjetas</h1>
-    <button onclick="addTemplate()">Agregar</button>
-    <button onclick="removeCard()">Eliminar</button>
+    <button onclick="mostrarCard()">Agregar</button>
+    <button onclick="removeCaja()">Eliminar</button>
     <div id="ancla"></div>
 
     <template id="miTemplate">
@@ -27,21 +42,41 @@
             <br><br>
             <label for="">Respuesta</label><br>
             <input id="respuesta" type="text"><br><br>
-            <button>Guardar</button>
+            <button onclick="anade()">Guardar</button>
             <button onclick="removeCard()">Cerrar</button>
         </div>
     </template>
+    
+    
+    
+    
+
     
     <ul id="lista">
     </ul>
     
 
     <script>
+        contador = 0
         function anade() {
+            const pregunta = document.getElementById("pregunta").value;
+            const respuesta = document.getElementById("respuesta").value;
             const element = document.getElementById("lista");
-            const li = document.createElement("li");
-            li.innerHTML = "Nuevo item";
-            element.appendChild(li);
+            contador++
+            const li = document.createElement(`li`);
+            
+            li.innerHTML = `<div class="caja" id="caja${contador}">
+                            <button onclick="caja${contador}.remove()">Trash</button>
+                            <hr>
+                            <h3>${pregunta}</h3>
+                            <h3>${respuesta}</h3>
+                            </div>`;
+                if (pregunta != '' && respuesta != '') {
+                    element.appendChild(li);
+                } else {
+                    alert("No hay ningún texto")
+                }
+            
         }
 
         function addTemplate() {
@@ -60,11 +95,34 @@
             div.replaceWith(p);
         }
 
+        // Quita la card
+        function removeCaja() {
+            const caja = document.getElementById("lista");
+            caja.replaceChildren('');
+        }
 
 
+        // Quita la card
         function removeCard() {
             const card = document.getElementById("card");
             card.remove();
+        }
+
+        // Muestra la card actual
+        function mostrarCard() {
+            const div = document.getElementById("ancla");
+            const p = document.createElement("p");
+            p.innerHTML = `<div id="card" class="flashcard" style="border: 2px solid black;">
+            <h2 text-align="center">Crear Flashcard</h2>
+            <label for="">Pregunta</label><br>
+            <input id="pregunta" type="text">
+            <br><br>
+            <label for="">Respuesta</label><br>
+            <input id="respuesta" type="text"><br><br>
+            <button onclick="anade()">Guardar</button>
+            <button onclick="removeCard()">Cerrar</button>
+        </div>`;
+            div.replaceChildren(p);
         }
 
 

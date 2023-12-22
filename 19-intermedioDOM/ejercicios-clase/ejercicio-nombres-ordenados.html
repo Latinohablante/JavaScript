@@ -33,6 +33,7 @@
             const nombre = document.getElementById("nombre").value;
             const ordenados = document.getElementById("nombres-ordenados").value;
             lista[lista.length] = nombre;
+            console.log(lista)
             lista.sort();
             let str = '';
             for (const item of lista) {
