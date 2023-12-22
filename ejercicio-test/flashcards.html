@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test 3 - Flashcard</title>
+    <style>
+        .flashcard {
+            margin: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+            visibility:visible;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gestión de Tarjetas</h1>
+    <button onclick="addTemplate()">Agregar</button>
+    <button onclick="removeCard()">Eliminar</button>
+    <div id="ancla"></div>
+
+    <template id="miTemplate">
+        <div id="card" class="flashcard" style="border: 2px solid black;">
+            <h2 text-align="center">Crear Flashcard</h2>
+            <label for="">Pregunta</label><br>
+            <input id="pregunta" type="text">
+            <br><br>
+            <label for="">Respuesta</label><br>
+            <input id="respuesta" type="text"><br><br>
+            <button>Guardar</button>
+            <button onclick="removeCard()">Cerrar</button>
+        </div>
+    </template>
+    
+    <ul id="lista">
+    </ul>
+    
+
+    <script>
+        function anade() {
+            const element = document.getElementById("lista");
+            const li = document.createElement("li");
+            li.innerHTML = "Nuevo item";
+            element.appendChild(li);
+        }
+
+        function addTemplate() {
+            const miTemplate = document.getElementById("miTemplate");
+            const clon = miTemplate.content.cloneNode(true);
+            document.body.appendChild(clon);
+            const ancla = document.getElementById("ancla");
+            ancla.replaceWith(clon)
+
+        }
+
+        function replaceWithElement() {
+            const div = document.querySelector("div");
+            const p = document.createElement("p");
+            p.innerHTML = "<span style='color:blue;'>Este es el contenido insertado </span>";
+            div.replaceWith(p);
+        }
+
+
+
+        function removeCard() {
+            const card = document.getElementById("card");
+            card.remove();
+        }
+
+
+    </script>
+</body>
+</html>
