@@ -44,7 +44,7 @@
             <tbody class="tabla_body"></tbody>
         </table>
     </main>
-    <button onclick="fight()">FIGHT</button>
+    <button onclick="pokeCPU()">FIGHT</button>
     <main id="pokemonCPU">
         <table class="tabla">
             <thead>
@@ -56,6 +56,28 @@
             <tbody class="tabla_body"></tbody>
         </table>
     </main>
+
+    
+        <div id="card" class="flashcard" style="border: 2px solid black;">
+            <h2 text-align="center">POKEMON</h2>
+            <img src="" alt="">
+            <label for="">NOMBRE: </label>
+            <input id="nombre" type="text">
+            <br><br>
+            <label for="">HP: </label>
+            <input id="hp" type="text"><br><br>
+            <label for="">ATTACK: </label>
+            <input id="attack" type="text"><br><br>
+            <label for="">DEFENSE: </label>
+            <input id="defense" type="text"><br><br>
+            <label for="">SPEED: </label>
+            <input id="speed" type="text"><br><br>
+            <button onclick="anade()">Guardar</button>
+            <button onclick="removeCard()">Cerrar</button>
+        </div>
+
+    <template id="miTemplate">    
+    </template>
     
     <script>
         const principal = document.getElementById("miPokemon");
@@ -112,10 +134,12 @@
                 let listaPokemon = await pokeApi(`${poke1}`);
                 cuerpoTabla.innerHTML = `
             <tr class="Pokemons">
-                <td><img src="${listaPokemon[0]}"</td>
+                <td colspan="2"><img src="${listaPokemon[0]}"</td>
+                
             </tr>
             <tr class="Pokemons">
-                <td>ID: ${listaPokemon[2]}</td>
+                <td>ID: </td>
+                <td>${listaPokemon[2]}</td>
             </tr>
             <tr class="Pokemons">    
                 <td>Name: ${listaPokemon[1]}</td>
@@ -143,7 +167,6 @@
             }
             
         }
-        miPokemon()
 
 
         async function test() {
@@ -189,20 +212,6 @@
         }
 
         async function pokeCPU() {
-            let time = new Date();
-
-            let time2 = new Date();
-
-            let resul = time2 - time;
-
-            console.log(resul)
-
-            console.log(resul.getSeconds())
-            let sieteSeg = 0
-                // while (sieteSeg != 7) {
-                //     let newTime = new Date();
-                //     sieteSeg = newTime - time;
-                // }
             
             const poke2 = Math.floor(Math.random() * (1000 - 0 + 1) + 0)
             
@@ -222,7 +231,7 @@
                 <td>Hp: ${listaPokemon2[3]}</td>
             </tr>
             </tr>
-                <tr class="Pokemons">    
+                <tr class="Pokemons">
                 <td>Attack: ${listaPokemon2[4]}</td>
             </tr>
             </tr>
@@ -235,7 +244,7 @@
             </tr>`
 
 
-            return new Map([["img", listaPokemon2[0]], ["nombre",listaPokemon2[1]], ["cod",listaPokemon2[2]], ["hp",listaPokemon2[3]], ["attack",listaPokemon2[4]], ["defense",listaPokemon2[5]], ["speed",listaPokemon2[6]], ["experiencia",listaPokemon2[7]]]);
+            pokemon2 = [listaPokemon2[0],listaPokemon2[1],listaPokemon2[2],listaPokemon2[3],listaPokemon2[4],listaPokemon2[5],listaPokemon2[6],listaPokemon2[7]]
 
             } catch (error) {
                 console.error(error.message);

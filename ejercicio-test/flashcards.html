@@ -86,7 +86,7 @@
                 if (pregunta != '' && respuesta != '') {
                     element.appendChild(li);
                     const visible = document.getElementById(`visible${contador}`)
-                    li.addEventListener("click",(e) => visible.classList.toggle("ver"))
+                    li.addEventListener("click",() => visible.classList.toggle("ver"))
                 } else {
                     alert("No hay ningún texto")
                 }
