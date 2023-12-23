@@ -36,6 +36,7 @@
         .ver {
             display: none;
         }
+        
     </style>
 </head>
 <body>
@@ -80,7 +81,7 @@
                             <button onclick="caja${contador}.remove()">Trash</button>
                             <hr>
                             <h3>${pregunta}</h3>
-                            <h3 id="visible${contador}">${respuesta}</h3>
+                            <h3 class="ver" id="visible${contador}">${respuesta}</h3>
                             </div>`;
                 if (pregunta != '' && respuesta != '') {
                     element.appendChild(li);
