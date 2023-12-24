@@ -60,24 +60,44 @@
     
         <div id="card" class="flashcard" style="border: 2px solid black;">
             <h2 text-align="center">POKEMON</h2>
-            <img src="" alt="">
+            <img id="imgPokemon" src="" alt="">
             <label for="">NOMBRE: </label>
-            <input id="nombre" type="text">
+            <input id="nombre" type="text" disabled>
             <br><br>
             <label for="">HP: </label>
-            <input id="hp" type="text"><br><br>
+            <input id="hp" type="text" disabled><br><br>
             <label for="">ATTACK: </label>
-            <input id="attack" type="text"><br><br>
+            <input id="attack" type="text" disabled><br><br>
             <label for="">DEFENSE: </label>
-            <input id="defense" type="text"><br><br>
+            <input id="defense" type="text" disabled><br><br>
             <label for="">SPEED: </label>
-            <input id="speed" type="text"><br><br>
-            <button onclick="anade()">Guardar</button>
-            <button onclick="removeCard()">Cerrar</button>
+            <input id="speed" type="text" disabled><br><br>
         </div>
 
     <template id="miTemplate">    
     </template>
+
+    <table border="1" align="left" bgcolor="#DAF7A6">
+        <tbody>
+        <tr align="center">
+            <th style="color:white" bgcolor="red">País</th>
+            <th style="color:white" bgcolor="red">Capital</th>
+        </tr>
+        <tr align="center">
+            <td>México</td>
+            <td>Cd. de México</td>
+        </tr>
+        <tr align="center">
+            <td>Cánada</td>
+            <td>Otawa</td>
+            
+        </tr>
+        <tr align="center">
+            <td>Estados Unidos</td>
+            <td>Whashington</td>
+        </tr>
+        </tbody><caption>Tabla de paises y su capital</caption>
+    </table>
     
     <script>
         const principal = document.getElementById("miPokemon");
