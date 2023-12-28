@@ -78,7 +78,7 @@
             
             
             li.innerHTML = `<div class="caja" id="caja${contador}">
-                            <button onclick="caja${contador}.remove()">Trash</button>
+                            <button onclick="caja${contador}.parentNode.remove()">Trash</button>
                             <hr>
                             <h3>${pregunta}</h3>
                             <h3 class="ver" id="visible${contador}">${respuesta}</h3>
@@ -100,7 +100,7 @@
         }
 
 
-        // Quita la card
+        // Quita la card de
         function removeCard() {
             const card = document.getElementById("card");
             card.remove();
