@@ -37,7 +37,7 @@
         <table class="tabla">
             <thead>
                 <tr>
-                    <th><button onclick="miPokemon()">MI POKEMON</button></th>
+                    <th><button onclick="miPokemonPrueba()">MI POKEMON</button></th>
                 </tr>
             </thead>
 
@@ -57,13 +57,15 @@
         </table>
     </main>
 
-    
+    <template id="miTemplate"> 
         <div id="card" class="flashcard" style="border: 2px solid black;">
             <h2 text-align="center">POKEMON</h2>
-            <img id="imgPokemon" src="" alt="">
+            <img>
             <label for="">NOMBRE: </label>
             <input id="nombre" type="text" disabled>
             <br><br>
+            <label for="">CÓDIGO: </label>
+            <input id="codigo" type="text" disabled><br><br>
             <label for="">HP: </label>
             <input id="hp" type="text" disabled><br><br>
             <label for="">ATTACK: </label>
@@ -72,32 +74,12 @@
             <input id="defense" type="text" disabled><br><br>
             <label for="">SPEED: </label>
             <input id="speed" type="text" disabled><br><br>
+            <input id="experiencia" type="hidden" disabled><br><br>
+        </div>
         </div>
 
-    <template id="miTemplate">    
+       
     </template>
-
-    <table border="1" align="left" bgcolor="#DAF7A6">
-        <tbody>
-        <tr align="center">
-            <th style="color:white" bgcolor="red">País</th>
-            <th style="color:white" bgcolor="red">Capital</th>
-        </tr>
-        <tr align="center">
-            <td>México</td>
-            <td>Cd. de México</td>
-        </tr>
-        <tr align="center">
-            <td>Cánada</td>
-            <td>Otawa</td>
-            
-        </tr>
-        <tr align="center">
-            <td>Estados Unidos</td>
-            <td>Whashington</td>
-        </tr>
-        </tbody><caption>Tabla de paises y su capital</caption>
-    </table>
     
     <script>
         const principal = document.getElementById("miPokemon");
@@ -181,6 +163,44 @@
             </tr>`
             pokemon = [listaPokemon[0],listaPokemon[1],listaPokemon[2],listaPokemon[3],listaPokemon[4],listaPokemon[5],listaPokemon[6],listaPokemon[7]]
 
+            } catch (error) {
+                console.error(error.message);
+            
+            }
+            
+        }
+
+
+        //Este es el test utilizando el template
+        async function miPokemonPrueba() {
+            const poke1 = Math.floor(Math.random() * (1000 - 0 + 1) + 0)
+            const $template = document.getElementById("miTemplate").content,
+            $card = $template.querySelector(".flashcard");
+            $fragment =  document.createDocumentFragment();
+            console.log($template)
+            try {
+                let listaPokemon = await pokeApi(`${poke1}`);
+
+            $template.querySelector("img").setAttribute("src",listaPokemon[0]);
+            $template.querySelector("img").setAttribute("alt",listaPokemon[1]);
+            //$template.getElementById("nombre").setAttribute("value",listaPokemon[1]);
+            $template.getElementById("nombre").value.listaPokemon[1];
+            $template.getElementById("codigo").setAttribute("value",listaPokemon[2]);
+            $template.getElementById("hp").setAttribute("value",listaPokemon[3]);
+            $template.getElementById("attack").setAttribute("value",listaPokemon[4]);
+            $template.getElementById("defense").setAttribute("value",listaPokemon[5]);
+            $template.getElementById("speed").setAttribute("value",listaPokemon[6]);
+
+            // console.log($template)
+
+            let $clone = document.importNode($card, true);
+            console.log($clone)
+            $fragment.appendChild($clone);
+            $card.appendChild($fragment);
+            console.log($card)
+            document.getElementById("miPokemon").appendChild($card)
+
+            
             } catch (error) {
                 console.error(error.message);
             
