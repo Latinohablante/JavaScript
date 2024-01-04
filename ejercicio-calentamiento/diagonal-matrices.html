@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones en Matriz</title>
+</head>
+<body>
+    <script>
+        
+
+        function diagonalDifference() {
+            let size = Number(prompt("Ingrese el tamaño de la matriz"))
+            let primDiag = 0
+            let secundDiag = 0
+        
+        
+            for (let i = 1 ; i <= size ; i++){
+                for (let j = 1 ; j <= size ; j++){
+                    let numero = Number(prompt(`Ingrese el número de la fila ${i} columna ${j}`))
+
+                    if (i == j) {
+                        primDiag += numero 
+                    }
+                    if ( j == (size - (i -1))) {
+                        secundDiag += numero
+                    }
+                }
+
+            }
+            console.log(primDiag)
+            console.log(secundDiag)
+            let solucion = primDiag - secundDiag
+
+            if (solucion < 0) {
+                
+
+                solucion = solucion * -1
+            } else {
+                solucion = solucion
+            }
+
+            resultado = alert(`${solucion}`)
+
+            return resultado
+        }
+        diagonalDifference()
+    </script>
+</body>
+</html>
