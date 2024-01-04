@@ -7,14 +7,24 @@
 </head>
 <body>
     <script>
-        const numeros = [1,5,3,4,2]
+    let target = 2
+    const numer = [1,5,3,4,2]
 
-    function countPairs(){
-        array.forEach(element => {
-            
-        });
-
-    }
+    function countPairs(array, tar){
+        let resultado = 0
+        for (i = 0; i < array.length; i++) {
+            //console.log(numeros[i]);
+            for (j = i+1; j < array.length; j++) {
+                //console.log(numeros[i]);
+                let dif = Math.abs(array[i] - array[j]);
+                if (dif == tar) {
+                    resultado++;
+                }
+            } 
+        } 
+        return resultado
+    };
+    console.log(countPairs(numer, target))
     </script>
     
 </body>

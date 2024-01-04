@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memoized function</title>
+</head>
+<body>
+    <script>
+
+        let fnName = "sum"
+        let actions = ["call","call","getCallCount","call","getCallCount","call","call","getCallCount","call","call","getCallCount"]
+        let values = [[2,2],[2,2],[],[2,2],[],[3,2],[1,2],[],[4,3],[2,1],[]]
+        let analRepetValues = []
+        //let contador = dataArr.length-1
+        let resultado = Number("")
+        let respuesta = []
+        let cont = 0
+
+        function sum(a,b) {
+            resultado = a + b;
+            return resultado
+        }
+            
+
+        function fib(int) {
+            if (int <= 1) {
+                return 1
+            } else {
+                resultado = fib(int-1) + fib(int-2)
+            }
+            return resultado
+        }
+
+        function factorial(int) {
+            if (int <= 1) {
+                return 1
+            } else {
+                resultado = factorial(int-1)*int
+                return resultado
+            }
+        }
+
+        function memoized(fun, llamadas, valores) {
+            if (fun === "sum") {
+                for (let i = 0 ; i<= llamadas.length-1 ; i++) {
+                    if ( llamadas[i] === "call") {
+                        let suma = sum(valores[i][0], valores[i][1]);
+                        //console.log(valores[i][0])
+                        //console.log(valores[i][1])
+                        respuesta.push(suma)
+                        
+                        strValores = JSON.stringify(analRepetValues)
+                        strUnValor = JSON.stringify(valores[i])
+                        console.log(strValores,strUnValor)
+                        strValores.indexOf(strUnValor) === -1 ? cont++ : "";
+                        analRepetValues.push(valores[i])
+                    } else {
+                        respuesta.push(cont)
+                        } 
+                        
+                } return respuesta
+            } else if (fnName == "fib") {
+
+            } else if (fnName == "factorial"){
+
+            }
+        
+        }
+        console.log(memoized(fnName,actions,values))
+    </script>
+</body>
+</html>
