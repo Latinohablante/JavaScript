@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+<body>
+    <h1>Contador</h1>
+    <button id="aumentar">Aumentar</button>
+    <button id="disminuir">Disminuir</button>
+    <h2>Contador: <span id="numero"></span></h2>
+
+    <script>
+        let contador = 0;
+        let num = document.getElementById("numero");
+
+        function dismin() {
+            contador--
+            num.innerHTML = `${contador}`;
+        }
+
+        function aument() {
+            contador++
+            num.innerHTML = `${contador}`;
+        }
+
+
+        document.getElementById('aumentar')
+            .addEventListener('click', aument);
+
+        document.getElementById('disminuir')
+            .addEventListener('click', dismin);
+    </script>
+</body>
+</html>

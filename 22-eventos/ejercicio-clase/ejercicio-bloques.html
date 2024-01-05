@@ -1,0 +1,49 @@
+<head>
+    <style>
+        .oculto {
+            display: none
+        }
+
+        .visible {
+            display: block
+        }
+    </style>
+</head>
+
+<body>
+    <div class="oculto" id="ficha1">
+        Hola, soy el bloque 1</div>
+    <div class="oculto" id="ficha2">
+        Hola, soy el bloque 2</div>
+    <div class="oculto" id="ficha3">
+        Hola, soy el bloque 3</div>
+
+    <script>
+        let ficha1 = document.getElementById("ficha1");
+        let ficha2 = document.getElementById("ficha2");
+        let ficha3 = document.getElementById("ficha3");
+
+        document.addEventListener("keypress", (e) => {
+            e.key === "1" ? 
+            (ficha1.classList.add("visible"),
+            ficha2.classList.remove("visible"),
+            ficha3.classList.remove("visible")) :
+
+            e.key === "2" ? (ficha2.classList.add("visible"),
+            ficha1.classList.remove("visible"),
+            ficha3.classList.remove("visible")) :
+
+            e.key === "3" ? (ficha3.classList.add("visible"),
+            ficha1.classList.remove("visible"),
+            ficha2.classList.remove("visible"))
+             : ""
+        }) 
+        
+
+
+
+
+
+    </script>
+
+</body>

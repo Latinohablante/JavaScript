@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setAttribute() - Ejemplo ondblclick</title>
+</head>
+<body>
+    <input type="text" id="miInput" value="Texto aquí">
+    <script>
+
+        const letters = "0123456789ABCDEF";
+
+        const changeBackgroundColor = () =>
+            document.body.style.backgroundColor = getRandomColor();
+
+        const getRandomColor = () => Array(6).fill("").reduce(
+            p => p += letters[Math.floor(Math.random() * 16)]
+            , "#");
+
+        //document.getElementById('changeColorButton')
+        //    .addEventListener('click', changeBackgroundColor);
+
+
+        // doble click
+        let miInput = document.getElementById("miInput");
+        miInput.setAttribute("ondblclick","alert('Doble click en el texto')");
+        
+
+        // onchange
+        let miCampoTexto = document.getElementById("miInput");
+        miCampoTexto.setAttribute("onkeypress","alert('Huvo un cambio')");
+
+        // onkeyover
+        let presTecla = document.getElementById("miInput");
+        miCampoTexto.setAttribute("onkeypress","changeBackgroundColor()");
+
+        // onmouseover
+        let mouseSobre = document.getElementById("miInput");
+        mouseSobre.setAttribute("onmouseover","alert('Pasaste el mouse sobre el input: se ejecutó onkeypress')");
+
+    </script>
+</body>
+</html>

@@ -8,11 +8,23 @@
 <body>
     <script>
 
-        let fnName = "sum"
-        let actions = ["call","call","getCallCount","call","getCallCount","call","call","getCallCount","call","call","getCallCount"]
-        let values = [[2,2],[2,2],[],[2,2],[],[3,2],[1,2],[],[4,3],[2,1],[]]
+        // Estos datos son para factorial
+        fnName = "factorial"
+        actions = ["call","call","call","getCallCount","call","getCallCount"]
+        values = [[2],[3],[2],[],[3],[]]
+
+        // Estos datos son para fibonaci
+        // let fnName = "fib"
+        // let actions = ["call","getCallCount"]
+        // let values = [[5],[]]
+
+        // Estos datos son para suma
+        // let fnName = "sum"
+        // let actions = ["call","call","getCallCount","call","getCallCount","call","call","getCallCount","call","call","getCallCount"]
+        // let values = [[2,2],[2,2],[],[2,2],[],[3,2],[1,2],[],[4,3],[2,1],[]]
+
         let analRepetValues = []
-        //let contador = dataArr.length-1
+        
         let resultado = Number("")
         let respuesta = []
         let cont = 0
@@ -61,9 +73,37 @@
                         
                 } return respuesta
             } else if (fnName == "fib") {
+                for (let i = 0 ; i<= llamadas.length-1 ; i++) {
+                    if ( llamadas[i] === "call") {
+                        let fibonaci = fib(valores[i]);
+                        console.log(fibonaci)
+                        respuesta.push(fibonaci)
+                        
+                        strValores = JSON.stringify(analRepetValues)
+                        strUnValor = JSON.stringify(valores[i])
+                        console.log(strValores,strUnValor)
+                        strValores.indexOf(strUnValor) === -1 ? cont++ : "";
+                        analRepetValues.push(valores[i])
+                    } else {
+                        respuesta.push(cont)
+                        }
+                } return respuesta
 
             } else if (fnName == "factorial"){
-
+                for (let i = 0 ; i<= llamadas.length-1 ; i++) {
+                    if ( llamadas[i] === "call") {
+                        let fact = factorial(valores[i]);
+                        respuesta.push(fact)
+                        
+                        strValores = JSON.stringify(analRepetValues)
+                        strUnValor = JSON.stringify(valores[i])
+                        console.log(strValores,strUnValor)
+                        strValores.indexOf(strUnValor) === -1 ? cont++ : "";
+                        analRepetValues.push(valores[i])
+                    } else {
+                        respuesta.push(cont)
+                        }
+                } return respuesta
             }
         
         }

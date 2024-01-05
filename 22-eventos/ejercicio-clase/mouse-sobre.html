@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse sobre párrafo</title>
+</head>
+<body>
+    <h1>Ejemplos de eventos</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis earum est molestias omnis quasi asperiores maiores odit enim consectetur? Ab fugit assumenda totam iusto deserunt mollitia corrupti sapiente numquam est.</p>
+    <script>
+        let contador = 0;
+
+        function contar() {
+            contador++;
+            const div = document.querySelector("p");
+            //const p = document.createElement("p");
+            div.innerHTML = `haz pasado el mouse ${contador} veces`;
+            // div.replaceWith(p);
+            // let mouseFuera = document.querySelector("p");
+            // mouseFuera.setAttribute("onmouseout","texto()");
+
+        }
+
+        function texto() {
+            const div = document.querySelector("p");
+            // const p = document.createElement("p");
+            div.innerHTML = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis earum est molestias omnis quasi asperiores maiores odit enim consectetur? Ab fugit assumenda totam iusto deserunt mollitia corrupti sapiente numquam est.`;
+            // div.replaceWith(p);
+            // let mouseSobre = document.querySelector("p");
+            // mouseSobre.setAttribute("onmouseover","contar()");
+
+        }
+        
+
+        // onmouseover
+        let mouseSobre = document.querySelector("p");
+        mouseSobre.setAttribute("onmouseover","contar()");
+
+        // let mouseFuera = document.querySelector("p");
+        mouseSobre.setAttribute("onmouseout","texto()");
+
+
+
+        </script>
+</body>
+</html>
