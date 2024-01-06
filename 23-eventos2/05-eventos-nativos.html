@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Nativos</title>
+</head>
+<body>
+    <h1>Eventos nativos</h1>
+    <hr>
+    <p>
+        Cuando se desencadenan eventos, a veces es necesario obtener detalles específicos sobre el evento, como el botón del ratón utilizado o la posición exacta en la pantalla. Esto se logra mediante el objeto event, proporcionado como un parámetro en la función asociada al evento. Por ejemplo, al escuchar un evento de clic en un botón, se puede acceder a propiedades específicas del objeto event que variarán según el tipo de evento.
+    </p>
+    <p>
+        En el siguiente ejemplo, al hacer click en un botón se muestra en la consola un objeto <b>PointerEvent</b> que incluye propiedades como <b>type</b>(nombre del evento), <b>pointerType</b>(tipo de dispositivo), <b>altKey</b>, <b>ctrlKey</b>, <b>shiftKey</b>(estado de teclas), <b>target</b>(elemento que disparó el evento), <b>clientX</b> y <b>clientY</b>(posición del click en la pantalla), entre otras.
+    </p>
+    <button>Haz click aquí</button>
+    <script>
+        
+    </script>
+</body>
+</html>

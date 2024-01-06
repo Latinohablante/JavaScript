@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Múltiples Listener</title>
+    <style>
+        .red {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <button>Saludar</button>
+    <script>
+        // varios listener para el botón
+        const button = document.querySelector("button");
+
+        const showMessageOnce = () => {
+            alert("¡Este mensaje solo aparecerá una vez!");
+            button.removeEventListener("click", showMessageOnce);
+        };
+        
+        button.addEventListener("click", showMessageOnce);
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir de centigrados a Fahrenheit y viceversa</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+            box-sizing: border-box;
+            color: black;
+            
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            border: 2px solid;
+            padding: 20px;
+            background-color: lightslategray;
+        }
+        button {
+            padding: 5px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .fondo {
+            background-color: #71ff74;
+        }
+
+        .digitando {
+            background-color: #feff64;
+        }
+
+        .convirtiendo {
+            background-color: #9dd2fd;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <label for="">Grados centígrados:</label>
+        <input id="numero1" type="number">
+        <br>
+        <label for="">Grados fahrenheit:</label>
+        <input id="numero2" type="number">
+        <br>
+        <button id="button">Convertir</button> 
+    </div>
+    
+    
+
+    <script>
+
+        function convertir() {
+            let fah = document.getElementById('numero2');
+            let cen = document.getElementById('numero1');
+            let cenNum = 0, fahNum = 0;
+            
+            if (fah.value != "" && cen.value == "") {
+                cenNum = (fah.value * 5 / 9 ) - (32 * 5 / 9)
+                cen.value = Number(cenNum.toFixed(2));
+                cen.classList.toggle("fondo")
+
+                cen.addEventListener("click", () =>{
+                    cen.classList.remove("convirtiendo")
+                    cen.classList.add("digitando");
+                    fah.classList.remove("digitando");
+                    fah.classList.add("convirtiendo");
+                });
+
+                fah.addEventListener("click", () =>{
+                    fah.classList.remove("convirtiendo")
+                    fah.classList.add("digitando");
+                    cen.classList.remove("digitando");
+                    cen.classList.add("convirtiendo");
+                });
+
+                fah.addEventListener("keyup", (e) => {
+                    cenNum = (fah.value * 5 / 9 ) - (32 * 5 / 9)
+                    cen.value = Number(cenNum.toFixed(2));
+                })
+                cen.addEventListener("keyup", (e) => {
+                    fahNum = ( cen.value * 9 / 5 ) + 32
+                    fah.value = fahNum;
+                })
+
+            } else if (cen.value != "" && fah.value == "") {
+                fahNum = ( cen.value * 9 / 5 ) + 32
+                fah.value = fahNum;
+                fah.classList.toggle("fondo")
+
+                cen.addEventListener("click", () =>{
+                    cen.classList.remove("convirtiendo")
+                    cen.classList.add("digitando");
+                    fah.classList.remove("digitando");
+                    fah.classList.add("convirtiendo");
+                });
+
+                fah.addEventListener("click", () =>{
+                    fah.classList.remove("convirtiendo")
+                    fah.classList.add("digitando");
+                    cen.classList.remove("digitando");
+                    cen.classList.add("convirtiendo");
+                });
+
+                fah.addEventListener("keyup", (e) => {
+                    cenNum = (fah.value * 5 / 9 ) - (32 * 5 / 9)
+                    cen.value = Number(cenNum.toFixed(2));
+                });
+                cen.addEventListener("keyup", (e) => {
+                    fahNum = ( cen.value * 9 / 5 ) + 32
+                    fah.value = fahNum;
+                });
+            }
+        }
+
+        document.getElementById('button')
+            .addEventListener('click', convertir);
+
+        
+        window.onload = () => {
+            document.getElementById('numero1').value = ""
+            document.getElementById('numero2').value = ""
+        }
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="myButton">Haz click aquí</button>
+    <div id="buttonDiv">Haz click <b>AQUÍ</b> para quitar el evento</div>
+
+    <script>
+        const myButton = document.getElementById("myButton");
+        const buttonDiv = document.getElementById("buttonDiv");
+
+        // Función que se ejecuta cuando se hace click en el botón
+
+        const handleClick = () => {
+            alert("¡Botón clickeado!");
+        };
+
+        // Agregar el listener al botón
+        myButton.addEventListener("click", handleClick);
+
+        // Agregar un listener al div exterior para quitar el listener del botón hacer click fuera
+        buttonDiv.addEventListener("click", () => {
+            alert("¡Has hecho click fuera del botón y quitaste el evento del botón!");
+            //Eliminar el listener del botón
+            myButton.removeEventListener("click", handleClick);
+        });
+    </script>
+</body>
+</html>

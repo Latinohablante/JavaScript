@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ejercicio 2 : Posición del mouse</title>
+    </head>
+
+    <body>
+        <div>
+            <label>Coordenada X</label>
+            <input id="cX">
+        </div>
+        <div>
+            <label>Coordenada Y</label>
+            <input id="cY">
+        </div>
+
+
+        <script>
+            const cX = document.getElementById("cX"), cY = document.getElementById("cY");
+
+            document.querySelector("html").addEventListener("mousemove", (e) => {
+                cX.value = e.clientX;
+                cY.value = e.clientY;
+            });
+        </script>
+    </body>
+
+</html>

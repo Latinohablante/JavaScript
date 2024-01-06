@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <style>
+        .boton {
+            display:block; 
+            width:100px;
+            cursor:pointer;
+            margin: 10px;
+            border:1px solid black
+        }
+        </style>
+    </head>
+
+    <body>
+        <div id="boton1" class="boton">Pulsar aquí</div>
+        <div id="boton2" class="boton">Pulsar aquí</div>
+
+
+        <script>
+            //Al pulsar con el ratón en cualquier botón deberá aparecer una ventana alert indicando el id del botón donde se ha pulsado.
+            function pulsar(e) { 
+                // target referencia el elemento completo y id referencia el id del elemento llamado
+                alert(`este es el id: ${e.target.id}`);
+            }
+            document.querySelector("body").addEventListener("click", (e) => pulsar(e));
+        </script>
+    </body>
+
+</html>
