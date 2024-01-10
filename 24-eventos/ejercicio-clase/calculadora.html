@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora JS</title>
+    <style>
+        .calculadora {
+            margin: 0 auto;
+            width: 50%;
+            display: grid;
+            grid-template-areas:    "resultado resultado resultado resultado"
+                                    "suma resta mult divi"
+                                    "siete ocho nueve igual"
+                                    "cuatro cinco seis igual"
+                                    "uno dos tres igual"
+                                    "cero punto C igual";
+        }
+
+        .boton {
+            background-color: rgba(255,255,255,0.8);
+            padding: 30px;
+            font-weight: bold;
+        }
+        .boton:hover {
+            background-color: lightsalmon;
+        }
+        #resultado {
+            background-color: lightslategray;
+            color: azure;
+            grid-area: resultado;
+            padding: 30px;
+        }
+        .operador {background-color: lightseagreen;}
+
+        #suma {
+            grid-area: suma;
+        }
+
+        #resta {
+            grid-area: resta;
+        }
+        
+        #mult {
+            grid-area: mult;
+        }
+
+        #divi {
+            grid-area: divi;
+        }
+
+        #uno {
+            grid-area: uno;
+        }
+        #dos {
+            grid-area: dos;
+        }
+
+        #tres {
+            grid-area: tres;
+        }
+
+        #cuatro {
+            grid-area: cuatro;
+        }
+        
+        #cinco {
+            grid-area: cinco;
+        }
+
+        #seis {
+            grid-area: seis;
+        }
+
+        #siete {
+            grid-area: siete;
+        }
+        #ocho {
+            grid-area: ocho;
+        }
+        
+        #nueve {
+            grid-area: nueve;
+        }
+
+        #cero {
+            grid-area: cero;
+        }
+
+        #punto {
+            grid-area: punto;
+        }
+        #C {
+            grid-area: C;
+        }
+        #igual {
+            grid-area: igual;
+        }
+    </style>
+</head>
+<body>
+    <div id="calc" class="calculadora">
+        <input type="text" id="resultado" disabled>
+        <button id="suma" class="boton operador" data-operador="suma">+</button>
+        <button id="resta" class="boton operador" data-operador="resta">-</button>
+        <button id="mult" class="boton operador" data-operador="mult">X</button>
+        <button id="divi" class="boton operador" data-operador="divi">/</button>
+        <button id="uno" class="boton num" value="1">1</button>
+        <button id="dos" class="boton num" value="2">2</button>
+        <button id="tres" class="boton num" value="3">3</button>
+        <button id="cuatro" class="boton num" value="4">4</button>
+        <button id="cinco" class="boton num" value="5">5</button>
+        <button id="seis" class="boton num" value="6">6</button>
+        <button id="siete" class="boton num" value="7">7</button>
+        <button id="ocho" class="boton num" value="8">8</button>
+        <button id="nueve" class="boton num" value="9">9</button>
+        <button id="cero" class="boton num" value="0">0</button>
+        <button id="punto" class="boton num">.</button>
+        <button id="C" class="boton">C</button>
+        <button id="AC" class="boton">AC</button>
+        <button id="igual">=</button>
+    </div>
+    <script>
+        const calc = document.getElementById("calc")
+        const suma = document.getElementById("suma")
+
+        const  resta = document.getElementById("resta")
+        const mult = document.getElementById("mult")
+        const  divi = document.getElementById("divi")
+        const  uno = document.getElementById("uno")
+        const  dos = document.getElementById("dos")
+        const  tres = document.getElementById("tres")
+        const  cuatro = document.getElementById("cuatro")
+        const  cinco = document.getElementById("cinco")
+        const  seis = document.getElementById("seis")
+        const  siete = document.getElementById("siete")
+        const  ocho = document.getElementById("ocho")
+        const  nueve = document.getElementById("nueve")
+        const  cero = document.getElementById("cero")
+        const igual = document.getElementById("igual")
+        const resultado = document.getElementById("resultado")
+        let num1 = "";
+        let num2 = "";
+        let operador = "";
+        let guardarOperacion = 0;
+
+        function fsuma(num1, num2) {
+            return Number(num1) + Number(num2) 
+        }
+
+        function fresta(num1, num2) {
+            return Number(num1) - Number(num2) 
+        }
+
+        function fmult(num1, num2) {
+            return Number(num1) * Number(num2) 
+        }
+
+        function fdivi(num1, num2) {
+            return Number(num1) / Number(num2) 
+        }
+
+        function operar(num1,num2,operador) {
+            
+        }
+
+        function clearDisplay() {
+            resultado.value = '';
+        }
+
+        function appendToDisplay(value) {
+            resultado.value += value;
+        }
+
+        // Obtener referencia a botones
+        // Recuerda: el punto . indica clases
+        const numeros = document.querySelectorAll(".num");
+        const operadores = document.querySelectorAll(".operador");
+        // Definir función y evitar definirla de manera anónima
+        
+        function operacion() {
+            let acumulado = ""
+            console.log("operador ",operador)
+            if (operador ==="") {
+                let valor = this.innerText;
+                resultado.value += valor
+                num1 = resultado.value
+                console.log("num1 ",num1)
+                acumulado = num1
+            } else {
+                let valor = this.innerText;
+                resultado.value += valor
+                console.log("num2 ",resultado.value)
+                num2 = `${resultado.value}`
+                acumulado = num2
+                
+            }
+            
+            // console.log(acumulado)
+        }
+
+        function bandera() {
+            switch(operador) {
+                    case "suma":
+                        num1 = fsuma(num1,num2);
+                        console.log("Estoy en suma");
+                        break
+                    case "resta":
+                        num1 = fresta(num1,num2);
+                        console.log("Estoy en la resta")
+                        break
+                    case "mult":
+                        num1 = fmult(num1,num2);
+                        console.log("Estoy en la multiplicacion")
+                        break
+                    case "divi":
+                        num1 = fdivi(num1,num2);
+                        console.log("Estoy en la division")
+                        break
+                    default:
+                        break
+                }
+                console.log("total", num1);
+                console.log(resultado.value);
+                document.getElementById("resultado").value = num1
+                console.log(resultado.value);
+                num2 = ""
+        }
+        
+    
+
+        function clickOperador(e) {
+            if (num2 != "") {
+                bandera();
+                console.log("resultado.value  ",resultado.value)
+                
+            } else {
+
+            }
+                
+            operador = e.target.dataset.operador;
+            clearDisplay()
+        }
+
+
+        // botones es un arreglo así que lo recorremos
+        numeros.forEach(boton => {
+        	//Agregar listener
+        	boton.addEventListener("click", operacion);
+        });
+
+        operadores.forEach(operador => {
+            operador.addEventListener("click", clickOperador)
+        })
+
+
+
+
+    </script>
+</body>
+</html>

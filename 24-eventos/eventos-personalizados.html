@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento personalizado</title>
+</head>
+<body>
+    <button>Cliqueame</button>
+    <span class="text">Pasa el mouse por encima mío</span>
+    <script>
+        const button = document.querySelector("button");
+        const text = document.querySelector(".text");
+
+        button.addEventListener("click", () => alert("Has pulsado el botón"));
+
+        // al pasar el mouse sobre el texto ejecuta como si se hubiera clickeado
+        text.addEventListener("mouseenter", () => {
+            const event = new Event("click");
+            button.dispatchEvent(event);
+        });
+    </script>
+</body>
+</html>
