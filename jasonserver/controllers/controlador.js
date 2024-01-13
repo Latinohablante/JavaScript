@@ -1,4 +1,7 @@
 //Para que funcione debe usarse el live server en el puerto 4000
+//json-server -p 4000 db/db.json
+//npm install json -server
+//https://github.com/typicode/json-server/tree/v0?tab=readme-ov-file
 
 import { post } from "../models/post.js";
 //import { get } from "./../models/get.js";
