@@ -1,7 +1,7 @@
 fetch('http://localhost:3000/trainers?nombres=carlos', {
     method:'GET',
     headers: {
-        'Content-type': 'application/json; charser=UTP-8',
+        'Content-type': 'application/json; charset=UTF-8',
     },
 })
     .then((response) => response.json())

@@ -8,7 +8,7 @@ fetch('http://localhost:3000/trainers', {
         "especialidad": "Fullstack Python"
     }),
     headers: {
-        'Content-type': 'application/json; charser=UTP-8',
+        'Content-type': 'application/json; charser=UTF-8',
     },
 })
     .then(response => response.json())

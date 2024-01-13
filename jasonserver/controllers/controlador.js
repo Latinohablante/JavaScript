@@ -1,9 +1,11 @@
-import { post } from "./../models/post.js";
-import { get } from "./../models/get.js";
-import { put } from "./../models/put.js";
-import { delet } from "./../models/delete.js";
+//Para que funcione debe usarse el live server en el puerto 4000
 
-import { llenarFormulario, llenarSelect } from "./../views/utils.js";
+import { post } from "../models/post.js";
+//import { get } from "./../models/get.js";
+ import { put } from "./../models/put.js";
+ import { delet } from "./../models/delete.js";
+
+//import { llenarFormulario, llenarSelect } from "./../views/utils.js";
 
 export function controlador(formu, event, entidad, elemformu) {
   const URL = "http://localhost:4000/";
@@ -34,8 +36,8 @@ export function controlador(formu, event, entidad, elemformu) {
       break;
     case "Borrar":
       url = URL + entidad + `/${datos.id}`;
-      delet(url);
-      formu.reset;
+      delet(url, datos);
+      formu.reset();
       break;
   }
 }

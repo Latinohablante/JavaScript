@@ -1,8 +1,8 @@
-export function post(url, objeto) {
+export function put(url, objeto) {
     fetch(url, {
-      method: "POST",
+      method: "PUT",
       headers: {
-        "Content-Type": "application/json; charser=UTF-8'",
+        "Content-type": "application/json; charset=UTF-8'",
       },
       body: JSON.stringify(objeto),
     })
