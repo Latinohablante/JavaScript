@@ -1,3 +1,4 @@
+// Agrega información pero no necesita la información anterior
 export function post(url, objeto) {
     fetch(url, {
       method: "POST",

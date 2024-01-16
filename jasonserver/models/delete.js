@@ -1,3 +1,4 @@
+// DELETE borra la información
 export function delet(url, objeto) {
     fetch(url, {
       method: "DELETE",

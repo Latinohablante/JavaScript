@@ -1,14 +1,14 @@
 //Para que funcione debe usarse el live server en el puerto 4000
 //json-server -p 4000 db/db.json
-//npm install json -server
+//npm install json-server
 //https://github.com/typicode/json-server/tree/v0?tab=readme-ov-file
 
 import { post } from "../models/post.js";
-//import { get } from "./../models/get.js";
- import { put } from "./../models/put.js";
- import { delet } from "./../models/delete.js";
+import { get } from "./../models/get.js";
+import { put } from "./../models/put.js";
+import { delet } from "./../models/delete.js";
 
-//import { llenarFormulario, llenarSelect } from "./../views/utils.js";
+// import { llenarFormulario, llenarSelect } from "../views/utils.js";
 
 export function controlador(formu, event, entidad, elemformu) {
   const URL = "http://localhost:4000/";
@@ -26,11 +26,9 @@ export function controlador(formu, event, entidad, elemformu) {
     case "CARGARSELECT":
     case "Buscar":
       url = `${URL}${entidad}/${datos !== null ? datos.id : ""}`;
-      get(url, formu).then((data) => {
-        // Utilizar los datos obtenidos
-        if (formu !== null) llenarFormulario(formu, data);
-        else if (value === "CARGARSELECT") llenarSelect(data, elemformu);
-      });
+      
+      get(url, formu);
+      // get(url, formu).then((data) => console.log("data: " + data))
       break;
     case "Modificar":
       url = URL + entidad + `/${datos.id}`;

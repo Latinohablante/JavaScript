@@ -1,3 +1,4 @@
+//PUT adiciona información pero necesita la información anterior
 export function put(url, objeto) {
     fetch(url, {
       method: "PUT",
