@@ -17,12 +17,12 @@
       "nombre": "Desarrollo M"
     },
     {
-      "id": "1",
-      "nombre": "Agregar skill"
-    },
-    {
       "id": "54",
       "nombre": "Error"
+    },
+    {
+      "id": "1",
+      "nombre": "Este es un dato"
     }
   ],
   "moduloskills": [
