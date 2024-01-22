@@ -8,46 +8,68 @@
 <body>
     <script>
     
-        array1 = [
+        const array1 = [
         {"id":"1"},
         {"id":"1"},
         {"id":"2"}
         ]
 
-        array2 = [
+        const array2 = [
             [1,2,3],
             [1,3,5],
             [1,5,9]
         ]
 
-        array3 = [1,2,3,4,5,6,7,8,9,10]
+        const array3 = [1,2,3,4,5,6,7,8,9,10]
 
-
-        function controller(array,fn,valor){
-            if (valor)
-
-            switch (value) {
-                
-                case "mapas":
-
-                    break;
-                
-                case "posicion":
-
-                    break;
-                case "condicional":
-                    
-                    break;
-
-
-            }
+        let fn1 = function(item) {
+            return item.id;
         }
 
-        fn1 = function (item) {
-            return item.id;
-        } 
+        let fn2 = function (list) {
+            return String(list[0]);
+        }
 
+        fn3 = function (n) {
+            return String(n > 5);
+        }
+
+        function filtro(fn,array){ 
+        let a = new Map()
+        array.forEach((element)=>{
+                if(a.get(fn(element))===undefined){
+                    lista = []
+                    lista.push(element)
+                    console.log(a.set(fn(element),lista))
+                }else{
+                    lista.push(element)
+                    console.log(a.set(fn(element),lista))
+                }
+            })
+
+            return a
+        }
+
+        function group_By (arr, fnct) {
+        let obj = {};
         
+        arr.forEach( element => {
+            if (fnct(element) in obj) {
+                
+                obj[`${fnct(element)}`].push(element);
+                
+            } else {
+                obj[`${fnct(element)}`] = [element];
+                
+            }
+
+            
+        })
+
+        return obj
+        }
+
+        console.log(group_By(array3, fn3))
         
     </script>
 </body>
