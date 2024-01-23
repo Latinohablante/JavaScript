@@ -3,17 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfumería ACME</title>
+    <title>Maestro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./views/dinamic.js" type="module" defer></script>
 </head>
 <body>
-    <h1>Perfumería ACME </h1>
-    <hr>
-    <br><br>
-    <h2>Ingrese su rol</h2>
-    <ul>
-        <li><a href="html/funcionario.html">Funcionario ACME</a></li>
-        <li><a href="html/loginCliente.html">Cliente</a></li>
-    </ul>
+   
+    <header>
+        <h2 class="logo">PERFUMES ACME</h2>
+        <input type="checkbox" id="check">
+        <label for="check" class="mostrar-menu">&#8801</label>
+    
+        <nav class="menu">
+            <a href="#" id="NomUser"></a>
+            <a href="html/loginFuncionario.html">Funcionario</a>
+            <a href="html/loginCliente.html">Cliente</a>
+            
+            <label for="check" class="esconder-menu">
+                &#215
+            </label>
+        </nav>
+    </header>
+    <section id="iconos">
+        <br>
+        <br>
+        <h1>NUESTROS PERFUMES</h1>
+        <div class="contenido-iconos">
+            
+            <div class="uno">
+                <h1>Perfume 1</h1>
+                <h6>Info</h6>
+                
+            </div>
+            <div class="dos">
+                <h1>Perfume 2</h1>
+                <h6>Info</h6>
+                
+            </div>
+            <div class="tres">
+                <h1>Perfume 3</h1>
+                <h6>Info</h6>
+                
+            </div>
+            <div class="cuatro">
+                <h1>Perfume 4</h1>
+                <h6>Info</h6>
+                
+            </div>
+            <div id="cinco">
+                <h1>Perfume 5</h1>
+                <h6>Info</h6>
+                
+            </div>
+            <div id="seis">
+                <h1>Perfume 6</h1>
+                <h6>Info</h6>
+                
+            </div>
+        </div>
+        <div class="boton-iconos">
+            <a href="./trabajos.html" class="boton-saber-mas">Saber más</a>
+        </div>
+    </section>
+    
 
+    <footer>
+        <p>&copy2024 PERFUMES ACME - Todos los derechos reservados</p>
+    </footer>
 </body>
 </html>

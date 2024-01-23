@@ -8,7 +8,7 @@
 // npx json-server -p 4001 db/db.json
 
 import { post } from "../models/post.js";
-import { get, verificarUserYPass } from "./../models/get.js";
+import { get, loginCl, loginFn  } from "./../models/get.js";
 import { put } from "./../models/put.js";
 import { delet } from "./../models/delete.js";
 
@@ -44,9 +44,9 @@ export function controlador(formu, event, entidad, elemformu) {
       delet(url, datos);
       formu.reset();
       break;
-    case "Ingresar":
+    case "IngresarCl":
       url = URL + entidad;
-      verificarUserYPass(url, datos).then((dt) => {
+      loginCl(url, datos).then((dt) => {
         console.log(dt)
         if (dt == true) {
 
@@ -56,5 +56,17 @@ export function controlador(formu, event, entidad, elemformu) {
         }
       })
       break
+      case "IngresarFn":
+        url = URL + entidad;
+        loginFn(url, datos).then((dt) => {
+          console.log(dt)
+          if (dt == true) {
+  
+            window.location.href = "/Javascript-filtro/html/funcionario.html";
+          } else {
+            alert("Ingrese los datos nuevamente");
+          }
+        })
+        break
   }
 }
