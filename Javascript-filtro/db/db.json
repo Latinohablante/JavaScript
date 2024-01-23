@@ -1,18 +1,18 @@
 {
     "tipousuarios": [
-    {
-    "id": 1,
-    "tipo": "administrador"
-    },
-    {
-    "id": 2,
-    "tipo": "funcionario"
-    },
-    {
-    "id": 3,
-    "tipo": "cliente"
-    }
-    ],
+        {
+            "id": 1,
+            "tipo": "administrador"
+        },
+        {
+            "id": 2,
+            "tipo": "funcionario"
+        },
+        {
+            "id": 3,
+            "tipo": "cliente"
+        }
+        ],
     "usuarios": [
     {
     "id": "integer; 0 < d <= 2.000.0000; (cedula cliente)",
