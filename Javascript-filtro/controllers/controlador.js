@@ -8,11 +8,11 @@
 // npx json-server -p 4001 db/db.json
 
 import { post } from "../models/post.js";
-import { get } from "./../models/get.js";
+import { get, verificarUserYPass } from "./../models/get.js";
 import { put } from "./../models/put.js";
 import { delet } from "./../models/delete.js";
 
-// import { llenarFormulario, llenarSelect } from "../views/utils.js";
+//import { llenarFormulario, llenarSelect } from "../views/funcionario.js";
 
 export function controlador(formu, event, entidad, elemformu) {
   const URL = "http://localhost:4001/";
@@ -44,5 +44,17 @@ export function controlador(formu, event, entidad, elemformu) {
       delet(url, datos);
       formu.reset();
       break;
+    case "Ingresar":
+      url = URL + entidad;
+      verificarUserYPass(url, datos).then((dt) => {
+        console.log(dt)
+        if (dt == true) {
+
+          window.location.href = "/Javascript-filtro/html/cliente.html";
+        } else {
+          alert("Ingrese los datos nuevamente");
+        }
+      })
+      break
   }
 }
